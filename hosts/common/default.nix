@@ -36,5 +36,5 @@
     wl-clipboard        # Command output to clipboard for Wayland
   ];
 
-  # Add other common configurations here
+  programs.zsh.enable = true;
 }
