@@ -11,15 +11,6 @@
   networking.hostName = "mimir";
   networking.networkmanager.enable = true;
 
-  # Zsh
-  users.defaultUserShell = pkgs.zsh;
-  users.users.shadows = {
-    useDefaultShell = true;
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    hashedPassword = null;
-  };
-
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
     NIXOS_OZONE_WL = "1";

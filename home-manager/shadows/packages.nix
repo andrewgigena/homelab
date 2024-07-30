@@ -16,6 +16,7 @@
     syncthing
     bitwarden
     yakuake
+    anydesk
 
     # Multimedia
     vlc

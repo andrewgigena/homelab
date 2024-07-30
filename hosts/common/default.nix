@@ -5,7 +5,8 @@
     ./filesystems.nix
     ./locale.nix
     ./nix.nix
-    # Add other common configuration files here
+    ./home-manager.nix
+    ./users.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -35,6 +36,4 @@
     wget                # Download manager
     wl-clipboard        # Command output to clipboard for Wayland
   ];
-
-  programs.zsh.enable = true;
 }
