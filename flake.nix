@@ -27,7 +27,7 @@
       "shadows@mimir" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./home-manager/shadows ];
+        modules = [ ./home ];
       };
     };
   };

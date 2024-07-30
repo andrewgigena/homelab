@@ -6,7 +6,7 @@
     home-manager = {
         extraSpecialArgs = { inherit inputs outputs; };
         users = {
-            shadows = import ../../home-manager/shadows;
+            shadows = import ../../home;
         };
     };
 
