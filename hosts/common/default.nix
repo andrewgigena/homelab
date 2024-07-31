@@ -19,6 +19,7 @@
     eza                 # Alternative to ls
     fd                  # Alternative to find
     file                # File type
+    fwupd               # Firmware manager
     git                 # Coding
     htop                # System usage monitoring
     lm_sensors          # Temperature monitoring

@@ -7,7 +7,6 @@ This repository contains my personal NixOS configuration files, tailored for mul
 - **NixOS 24.05** with Flakes support
 - **KDE Plasma 6** as the desktop environment on Mimir
 - **Home Manager** for user-specific configurations
-- Optimized for specific hardware (e.g., Lenovo ThinkPad T480 for Mimir)
 - Variety of development tools and productivity applications
 
 ### Key Components
@@ -17,8 +16,8 @@ This repository contains my personal NixOS configuration files, tailored for mul
 - **Audio**: PipeWire setup with ALSA, PulseAudio, and JACK support
 - **Bluetooth**: Enabled and configured
 - **Video Acceleration**: Hardware-specific GPU optimization
-- **SSD Optimizations**: BTRFS with compression and noatime options (on Mimir)
-- **Security**: LUKS encryption for the root partition (on Mimir)
+- **SSD Optimizations**: BTRFS with compression and noatime options
+- **Security**: LUKS encryption for the root partition
 
 ## Machines
 
@@ -54,12 +53,12 @@ To build and switch to a specific configuration, run:
 
 For Mimir:
 ```sh
-update-mimir
+nixos-mimir
 ```
 
 For Kepler:
 ```sh
-update-kepler
+nixos-kepler
 ```
 
 ## License
