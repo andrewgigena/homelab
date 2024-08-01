@@ -7,6 +7,7 @@
     ./nix.nix
     ./home-manager.nix
     ./users.nix
+    ./security.nix
   ];
 
   environment.systemPackages = with pkgs; [
