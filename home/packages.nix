@@ -53,7 +53,6 @@
     ctags
     dbeaver-bin
     devenv
-    direnv
     dtc                                         # Device Tree compiler
     gdb
     gh                                          # GitHub CLI tool
