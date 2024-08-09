@@ -5,9 +5,14 @@
 
   boot.initrd.luks.devices."disk".device = "/dev/disk/by-uuid/82feac14-b199-429a-bffe-cff9306b1be9";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "amdgpu" ];
+  boot.kernelModules = [ "kvm-amd"];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [
+    "video=DP-1:2560x1080@75,panel_orientation=normal"
+    "video=DP-2:1920x1080@60,panel_orientation=left_side_up"
+    "video=HDMI-A-1:1920x1080@60,panel_orientation=normal"
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/8bbf763e-0613-48b6-8ed0-d15a83510946";
