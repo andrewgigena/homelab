@@ -77,6 +77,7 @@
     nodejs                                      # Javascript
     python3                                     # Python 3
     rustup                                      # Rust
+    zig 
 
     # Language Server Protocols
     clang-tools                                 # C / C++
@@ -92,6 +93,7 @@
     vscode-langservers-extracted                # HTML / CSS / LESS / SCSS / Json / Eslint
     yaml-language-server                        # YAML
 
-
+    # Databases
+    sqlite
   ];
 }

@@ -12,7 +12,7 @@
   networking.networkmanager.enable = true;
 
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
+    LIBVA_DRIVER_NAME = "i965";
     NIXOS_OZONE_WL = "1";
   };
 
@@ -56,7 +56,7 @@
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver
+      intel-vaapi-driver
       libvdpau-va-gl
     ];
   };
@@ -81,6 +81,7 @@
       mesa
       fontconfig
       freetype
+      sqlite
     ];
   };
 
