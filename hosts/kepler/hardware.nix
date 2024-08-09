@@ -3,46 +3,46 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.luks.devices."disk".device = "/dev/disk/by-uuid/01967b4c-767f-4ab5-a273-5f60e27ed319";
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+  boot.initrd.luks.devices."disk".device = "/dev/disk/by-uuid/82feac14-b199-429a-bffe-cff9306b1be9";
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/5406a663-c73f-4a2b-9b75-e54bd8f74b90";
+    device = "/dev/disk/by-uuid/8bbf763e-0613-48b6-8ed0-d15a83510946";
     fsType = "btrfs";
     options = [ "subvol=@root" "compress=zstd" "noatime"];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/5406a663-c73f-4a2b-9b75-e54bd8f74b90";
+    device = "/dev/disk/by-uuid/8bbf763e-0613-48b6-8ed0-d15a83510946";
     fsType = "btrfs";
     options = [ "subvol=@home" "compress=zstd" "noatime" ];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/5406a663-c73f-4a2b-9b75-e54bd8f74b90";
+    device = "/dev/disk/by-uuid/8bbf763e-0613-48b6-8ed0-d15a83510946";
     fsType = "btrfs";
     options = [ "subvol=@nix" "compress=zstd" "noatime" ];
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/5406a663-c73f-4a2b-9b75-e54bd8f74b90";
+    device = "/dev/disk/by-uuid/8bbf763e-0613-48b6-8ed0-d15a83510946";
     fsType = "btrfs";
     options = [ "subvol=@persist" "compress=zstd" "noatime" ];
     neededForBoot = true;
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/5406a663-c73f-4a2b-9b75-e54bd8f74b90";
+    device = "/dev/disk/by-uuid/8bbf763e-0613-48b6-8ed0-d15a83510946";
     fsType = "btrfs";
     options = [ "subvol=@log" "compress=zstd" "noatime" ];
     neededForBoot = true;
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/35DB-E5F8";
+    device = "/dev/disk/by-uuid/A901-69EC";
     fsType = "vfat";
     options = [ "fmask=0022" "dmask=0022" ];
   };

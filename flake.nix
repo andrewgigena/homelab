@@ -1,5 +1,5 @@
 {
-  description = "Mimir config";
+  description = "Andrew's NixOS config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -21,10 +21,21 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ];
       };
+      kepler = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/kepler
+        ];
+      };
     };
 
     homeConfigurations = {
       "shadows@mimir" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [ ./home ];
+      };
+      "shadows@kepler" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [ ./home ];

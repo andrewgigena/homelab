@@ -8,13 +8,8 @@
     ../../modules/desktop/kde.nix
   ];
 
-  networking.hostName = "mimir";
+  networking.hostName = "kepler";
   networking.networkmanager.enable = true;
-
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "i965";
-    NIXOS_OZONE_WL = "1";
-  };
 
   hardware = {
     enableAllFirmware = true;
@@ -30,7 +25,6 @@
   };
 
   powerManagement.enable = true;
-  services.thinkfan.enable = true;
   services.thermald.enable = true;
 
   boot = {
@@ -41,19 +35,7 @@
     initrd.systemd.enable = true;
     plymouth.enable = true;
     kernelParams = [ "quiet" "splash" "udev.log_level=0" ];
-    extraModprobeConfig = "options thinkpad_acpi fan_control=1";
-  };
-
-  # Video acceleration
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-vaapi-driver
-      libvdpau-va-gl
-    ];
+    extraModprobeConfig = "options";
   };
 
   programs.nix-ld = {
