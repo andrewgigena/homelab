@@ -9,9 +9,9 @@
   boot.kernelModules = [ "kvm-amd"];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
-    "video=DP-1:2560x1080@74.99"
+    "video=DP-1:1920x1080@60.00"
     "video=DP-2:1920x1080@60.00,panel_orientation=left_side_up"
-    "video=HDMI-A-1:1920x1080@60.00"
+    "video=HDMI-A-1:2560x1080@74.99"
   ];
 
   fileSystems."/" = {

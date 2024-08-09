@@ -6,6 +6,7 @@
     ./hardware.nix
     ../../modules/services
     ../../modules/desktop/kde.nix
+    ../../modules/desktop/steam.nix
   ];
 
   networking.hostName = "mimir";

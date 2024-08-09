@@ -14,7 +14,6 @@
     # Games
     cemu                                        # Nintendo Wii U Emulator
     gamemode                                    # Acelerador de sistema para Juegos
-    steam                                       # Steam
 
     # Utilities and Others
     anydesk                                     # Desktop sharing and remote support
