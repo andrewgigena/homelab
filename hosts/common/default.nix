@@ -2,12 +2,15 @@
 
 {
   imports = [
+    ./boot.nix
     ./filesystems.nix
     ./locale.nix
     ./nix.nix
     ./home-manager.nix
     ./users.nix
     ./security.nix
+    ./bluetooth.nix
+    ./nix-ld.nix
   ];
 
   environment.systemPackages = with pkgs; [
