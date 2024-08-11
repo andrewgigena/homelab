@@ -13,6 +13,7 @@
   boot.loader.systemd-boot.consoleMode = "max";
   networking.networkmanager.enable = true;
   powerManagement.enable = true;
+  services.fwupd.enable = true;
   services.thermald.enable = true;
   hardware.enableAllFirmware = true;
 

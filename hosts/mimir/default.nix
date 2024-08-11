@@ -17,6 +17,7 @@
     NIXOS_OZONE_WL = "1";
   };
   powerManagement.enable = true;
+  services.fwupd.enable = true;
   services.thinkfan.enable = true;
   services.thermald.enable = true;
 
