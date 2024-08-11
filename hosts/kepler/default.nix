@@ -10,6 +10,7 @@
   ];
 
   networking.hostName = "kepler";
+  boot.loader.systemd-boot.consoleMode = "max";
   networking.networkmanager.enable = true;
   powerManagement.enable = true;
   services.thermald.enable = true;

@@ -11,8 +11,7 @@
       syntaxHighlighting.enable = true;
 
       shellAliases = {
-        nixos-mimir  = "sudo nixos-rebuild --flake /etc/nixos/#mimir";
-        nixos-kepler = "sudo nixos-rebuild --flake /etc/nixos/#kepler";
+        nixos = "sudo nixos-rebuild --flake /etc/nixos/#$(hostname)";
       };
 
       oh-my-zsh = {

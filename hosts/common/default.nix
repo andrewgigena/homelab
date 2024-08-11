@@ -41,5 +41,11 @@
     wget                # Download manager
     wl-clipboard        # Command output to clipboard for Wayland
     powertop            # Power mangemement
+    aha
+    pciutils
+    clinfo
+    glxinfo
+    vulkan-tools
+    wayland-utils
   ];
 }

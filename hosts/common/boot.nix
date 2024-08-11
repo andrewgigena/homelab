@@ -2,10 +2,9 @@
 
 {
   boot.supportedFilesystems = [ "btrfs" ];
-    boot = {
+  boot = {
     loader = {
       systemd-boot.enable = true;
-      systemd-boot.consoleMode = "max";
       efi.canTouchEfiVariables = true;
     };
     initrd.systemd.enable = true;
