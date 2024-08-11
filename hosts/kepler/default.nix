@@ -2,20 +2,24 @@
 
 {
   imports = [
-    ../common
     ./hardware.nix
+    ../../modules/system
     ../../modules/services
     ../../modules/desktop/kde.nix
     ../../modules/desktop/steam.nix
   ];
 
   networking.hostName = "kepler";
-  boot.loader.systemd-boot.consoleMode = "max";
   networking.networkmanager.enable = true;
-  powerManagement.enable = true;
-  services.fwupd.enable = true;
-  services.thermald.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max";
+
+  # Firmware
   hardware.enableAllFirmware = true;
+  services.fwupd.enable = true;
+
+  # Power Management
+  powerManagement.enable = true;
+  services.thermald.enable = true;
 
   # Enable OpenCL on Radeon RX580
   hardware.amdgpu.opencl.enable = true;
