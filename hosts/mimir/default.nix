@@ -41,7 +41,6 @@
       intel-vaapi-driver # Video acceleration
       libvdpau-va-gl # Video acceleration
       intel-compute-runtime # OpenCL
-      intel-ocl # OpenCL
     ];
   };
 
