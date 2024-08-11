@@ -27,11 +27,14 @@
   nixpkgs.config.packageOverrides = pkgs: {
     intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
+
+  # OpenGL and Others
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-vaapi-driver
-      libvdpau-va-gl
+      intel-vaapi-driver # Video acceleration
+      libvdpau-va-gl # Video acceleration
+      intel-compute-runtime # OpenCL
     ];
   };
 
