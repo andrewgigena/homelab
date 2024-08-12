@@ -3,7 +3,7 @@
 {
   imports = [
     ./syncthing.nix
-    ./virtualization.nix
+    ./virtualisation.nix
   ];
 
   services = {
