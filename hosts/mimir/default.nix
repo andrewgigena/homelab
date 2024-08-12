@@ -11,7 +11,10 @@
 
   networking.hostName = "mimir";
   networking.networkmanager.enable = true;
-  boot.extraModprobeConfig = "thinkpad_acpi fan_control=1";
+  boot.extraModprobeConfig = ''
+    options iwlwifi power_save=1
+  '';
+
 
   # Environment Variables
   environment.sessionVariables = {
@@ -20,6 +23,7 @@
   };
 
   # Firmware
+  hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
   services.fwupd.enable = true;
 

@@ -14,6 +14,7 @@
   boot.loader.systemd-boot.consoleMode = "max";
 
   # Firmware
+  hardware.cpu.amd.updateMicrocode = true;
   hardware.enableAllFirmware = true;
   services.fwupd.enable = true;
 

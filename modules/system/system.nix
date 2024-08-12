@@ -2,13 +2,12 @@
 
 {
   time.timeZone = "America/Montevideo";
-  swapDevices = [ {
-    device = "/swapfile";
-    size = 4*1024;
-  } ];
 
+  # Swap configuration
+  swapDevices = [ { device = "/swapfile"; size = 4*1024;} ];
   zramSwap.enable = true;
 
+  # Add feedback to show how many characters are written during sudo input
   security.sudo.extraConfig = ''
     Defaults pwfeedback
   '';
@@ -47,6 +46,7 @@
     glxinfo
     vulkan-tools
     wayland-utils
+    usbutils
     ocl-icd            # OpenCL
   ];
 }
