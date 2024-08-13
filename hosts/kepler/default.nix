@@ -69,7 +69,7 @@
     wantedBy = [ "graphical-session.target" ];
 
     serviceConfig = {
-      ExecStart = "${pkgs.alsa-utils}/bin/amixer -c 2 sset 'Auto-Mute Mode' Disabled";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'for device in $(${pkgs.alsa-utils}/bin/aplay -L | grep -oP \"^[^\\s]*\"); do ${pkgs.alsa-utils}/bin/amixer -D \"$device\" sset \"Auto-Mute Mode\" Disabled 2>/dev/null || true; done'";
       Type = "oneshot";
     };
   };
