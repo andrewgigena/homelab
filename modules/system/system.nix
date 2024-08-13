@@ -47,6 +47,7 @@
     vulkan-tools
     wayland-utils
     usbutils
+#     alsa-utils
     ocl-icd            # OpenCL
   ];
 }

@@ -4,9 +4,17 @@
   imports = [
     ./hardware.nix
     ../../modules/system
-    ../../modules/services
     ../../modules/desktop/kde.nix
-    ../../modules/desktop/steam.nix
+    ../../modules/services/audio.nix
+    ../../modules/services/flatpak.nix
+    ../../modules/services/general.nix
+    ../../modules/services/kdeconnect.nix
+    ../../modules/services/network.nix
+    ../../modules/services/printing.nix
+    ../../modules/services/ssd.nix
+    ../../modules/services/steam.nix
+    ../../modules/services/syncthing.nix
+    ../../modules/services/virtualisation.nix
   ];
 
   networking.hostName = "mimir";
@@ -41,6 +49,8 @@
   # OpenGL and Others
   hardware.opengl = {
     enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
     extraPackages = with pkgs; [
       intel-vaapi-driver # Video acceleration
       libvdpau-va-gl # Video acceleration

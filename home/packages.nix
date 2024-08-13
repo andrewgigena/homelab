@@ -23,7 +23,6 @@
     helvum                                      # Pipewire manager
     innoextract                                 # Extractor of content from .exe installers
     obsidian                                    # Notes
-    ollama                                      # Server/Client for LLM
     pmbootstrap                                 # PostmarketOS manager
     syncthing                                   # Sync files between computers
     yakuake                                     # Dropdown Terminal

@@ -21,44 +21,30 @@ This repository contains my personal NixOS configuration files, tailored for mul
 
 ## Machines
 
-### Mimir (Lenovo ThinkPad T480)
+### Mimir - Lenovo ThinkPad T480
+### Kepler - Custom build Workstation
 
-Mimir is configured with optimizations specific to the ThinkPad T480 hardware, including:
 
-- Intel GPU optimizations
-- ThinkPad-specific power management
-- Custom BTRFS partition layout
-
-### Kepler
-
-PENDING TO MIGRATE FROM ARCH LINUX
 
 ## Structure
 
 - `flake.nix`: The entry point of the configuration
+- `home/`: User-specific configurations managed by Home Manager
 - `hosts/`: System-specific configurations
   - `mimir/`: Configuration for the ThinkPad T480
   - `kepler/`: Configuration for Kepler
-  - `common/`: Shared configurations across systems
 - `modules/`: Reusable NixOS modules
   - `desktop/`: Desktop environment configurations
   - `services/`: Various system services
-- `home-manager/`: User-specific configurations managed by Home Manager
+  - `system/`: Shared configurations across systems
 
 ## Usage
 
 ### Building the System
 
 To build and switch to a specific configuration, run:
-
-For Mimir:
 ```sh
-nixos-mimir
-```
-
-For Kepler:
-```sh
-nixos-kepler
+nixos switch
 ```
 
 ## License
