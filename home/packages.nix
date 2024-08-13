@@ -9,11 +9,9 @@
     telegram-desktop                            # Instant Messaging
     thunderbird                                 # Email manager
     tor-browser                                 # Web Browser
-    zerotierone                                 # VPN by Zerotier
 
     # Games
     cemu                                        # Nintendo Wii U Emulator
-    gamemode                                    # Acelerador de sistema para Juegos
 
     # Utilities and Others
     anydesk                                     # Desktop sharing and remote support
@@ -24,8 +22,8 @@
     innoextract                                 # Extractor of content from .exe installers
     obsidian                                    # Notes
     pmbootstrap                                 # PostmarketOS manager
-    syncthing                                   # Sync files between computers
     yakuake                                     # Dropdown Terminal
+    libsForQt5.kompare
 
     # Multimedia
     audacity                                    # Audio editor

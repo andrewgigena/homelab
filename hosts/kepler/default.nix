@@ -2,19 +2,21 @@
 
 {
   imports = [
-    ./hardware.nix
-    ../../modules/system
     ../../modules/desktop/kde.nix
     ../../modules/services/audio.nix
     ../../modules/services/flatpak.nix
+    ../../modules/services/gaming.nix
     ../../modules/services/general.nix
     ../../modules/services/kdeconnect.nix
     ../../modules/services/network.nix
+    ../../modules/services/ollama.nix
     ../../modules/services/printing.nix
     ../../modules/services/ssd.nix
-    ../../modules/services/steam.nix
     ../../modules/services/syncthing.nix
     ../../modules/services/virtualisation.nix
+    ../../modules/services/zerotier.nix
+    ../../modules/system
+    ./hardware.nix
   ];
 
   networking.hostName = "kepler";
@@ -37,6 +39,7 @@
   };
 
   # Hardware things
+  nixpkgs.config.rocmSupport = true;
   hardware = {
     amdgpu.initrd.enable = true;
     opengl = {
@@ -46,10 +49,16 @@
       extraPackages = with pkgs; [
         rocmPackages_5.clr        # OpenCL for RX580
         rocmPackages_5.clr.icd    # OpenCL for RX580
+        rocmPackages_5.rocminfo
+        rocmPackages_5.rocm-runtime
         mesa.opencl
       ];
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages_5.clr}"
+  ];
 
   # Fix audio
   systemd.user.services.disable-auto-mute = {

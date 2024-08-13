@@ -2,19 +2,20 @@
 
 {
   imports = [
-    ./hardware.nix
-    ../../modules/system
     ../../modules/desktop/kde.nix
     ../../modules/services/audio.nix
     ../../modules/services/flatpak.nix
+    ../../modules/services/gaming.nix
     ../../modules/services/general.nix
     ../../modules/services/kdeconnect.nix
     ../../modules/services/network.nix
     ../../modules/services/printing.nix
     ../../modules/services/ssd.nix
-    ../../modules/services/steam.nix
     ../../modules/services/syncthing.nix
     ../../modules/services/virtualisation.nix
+    ../../modules/services/zerotier.nix
+    ../../modules/system
+    ./hardware.nix
   ];
 
   networking.hostName = "mimir";
