@@ -24,6 +24,7 @@
     pmbootstrap                                 # PostmarketOS manager
     yakuake                                     # Dropdown Terminal
     libsForQt5.kompare
+    typst
 
     # Multimedia
     audacity                                    # Audio editor

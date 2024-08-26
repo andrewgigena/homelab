@@ -12,7 +12,8 @@
     ../../modules/services/printing.nix
     ../../modules/services/ssd.nix
     ../../modules/services/syncthing.nix
-    ../../modules/services/virtualisation.nix
+    ../../modules/services/qemu.nix
+    ../../modules/services/docker.nix
     ../../modules/services/zerotier.nix
     ../../modules/system
     ./hardware.nix
