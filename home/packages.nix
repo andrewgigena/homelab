@@ -38,6 +38,7 @@
     obs-studio                                  # Audio/Video recoder
     vlc                                         # Video reproductor
     yt-dlp                                      # Download videos from YouTube
+    spotify
 
     # Development tooling
     act                                         # Simulator of GitHub Actions using Docker
