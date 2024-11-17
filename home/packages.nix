@@ -5,13 +5,14 @@
     # Internet
     firefox                                     # Web Browser
     google-chrome                               # Web Browser
-    qbittorrent                                 # Torrents
+    #qbittorrent                                 # Torrents
     telegram-desktop                            # Instant Messaging
     thunderbird                                 # Email manager
     tor-browser                                 # Web Browser
 
     # Games
     cemu                                        # Nintendo Wii U Emulator
+    lutris
 
     # Utilities and Others
     anydesk                                     # Desktop sharing and remote support
@@ -25,6 +26,7 @@
     yakuake                                     # Dropdown Terminal
     libsForQt5.kompare
     typst
+    distrobox
 
     # Multimedia
     audacity                                    # Audio editor
@@ -64,7 +66,7 @@
     ruff                                        # Formatter and linter for Python
     uv                                          # Package manager for Python
     vscode
-    zed-editor
+#    zed-editor
 
     # Programming Languages
     clang                                       # C / C++

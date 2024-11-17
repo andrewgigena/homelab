@@ -25,6 +25,7 @@
 
   home.sessionVariables = with pkgs; {
     GSETTINGS_SCHEMA_DIR = "${gtk4}/share/gsettings-schemas/${gtk4.name}/glib-2.0/schemas";
+    ZSH_DISABLE_COMPFIX = "true";
   };
 
   _module.args.unstable = import inputs.nixpkgs-unstable {
