@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ unstable, ... }:
 
 {
-  home.packages = with pkgs; [
+  home.packages = with unstable; [
     # Internet
     firefox                                     # Web Browser
     google-chrome                               # Web Browser

@@ -3,11 +3,8 @@
 {
   time.timeZone = "America/Montevideo";
 
-  # Swap configuration
-  swapDevices = [ { device = "/swapfile"; size = 4*1024;} ];
-  zramSwap.enable = true;
 
-  # Add feedback to show how many characters are written during sudo input
+  # Show how many characters are being written during password input
   security.sudo.extraConfig = ''
     Defaults pwfeedback
   '';

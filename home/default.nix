@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -25,5 +25,10 @@
 
   home.sessionVariables = with pkgs; {
     GSETTINGS_SCHEMA_DIR = "${gtk4}/share/gsettings-schemas/${gtk4.name}/glib-2.0/schemas";
+  };
+
+  _module.args.unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
   };
 }

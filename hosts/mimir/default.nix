@@ -24,7 +24,11 @@
   boot.extraModprobeConfig = ''
     options iwlwifi power_save=1
   '';
-
+  boot.kernelParams = ''
+    zswap.enabled=1
+    zswap.compressor=zstd
+    zswap.max_pool_percent=100
+  '';
 
   # Environment Variables
   environment.sessionVariables = {
