@@ -21,18 +21,15 @@ This repository contains my personal NixOS configuration files, tailored for mul
 
 ## Machines
 
-### Mimir - Lenovo ThinkPad T480
-### Kepler - Custom build Workstation
-
-
+- **Mimir**: Lenovo ThinkPad T480
+- **Kepler**: Custom build Workstation
+- **Voyager**: HP Casablanca H710 
 
 ## Structure
 
 - `flake.nix`: The entry point of the configuration
-- `home/`: User-specific configurations managed by Home Manager
-- `hosts/`: System-specific configurations
-  - `mimir/`: Configuration for the ThinkPad T480
-  - `kepler/`: Configuration for Kepler
+- `home/`: User specific configurations managed by Home Manager
+- `hosts/`: Device specific configurations
 - `modules/`: Reusable NixOS modules
   - `desktop/`: Desktop environment configurations
   - `services/`: Various system services
