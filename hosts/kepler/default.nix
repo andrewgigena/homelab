@@ -75,5 +75,12 @@
     };
   };
 
+  services.ddccontrol.enable = true;
+
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    "riscv64-linux"
+  ];
+
   system.stateVersion = "24.05";
 }
