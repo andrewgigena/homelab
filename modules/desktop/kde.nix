@@ -13,4 +13,5 @@
       autoLogin.user = "shadows";
     };
   };
+  programs.partition-manager.enable = true;
 }
