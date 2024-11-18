@@ -16,8 +16,11 @@
   boot.loader.grub.enableCryptodisk = true;
   boot.initrd.luks.devices."disk".device = "/dev/disk/by-uuid/e999efba-f8f1-4269-9dc5-3dc4b4b00bad";
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "sd_mod" "sr_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" "i915" "radeon" "amdgpu"];
+  boot.initrd.kernelModules = [ "dm-snapshot" "i915" "radeon"];
+  boot.kernelModules = [ "kvm-intel" "i915" "radeon"];
+  # AMDGPU driver don't work on this system
+  # Checked on /linux/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c at amdgpu_unsupported_pciidlist
+  boot.blacklistedKernelModules = [ "amdgpu" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [
     "zswap.enabled=1"
