@@ -1,32 +1,26 @@
-{ unstable, ... }:
+{ config, unstable, ... }:
 
+let
+  gamingDevice = false;
+  workstationDevice = false;
+in
 {
   home.packages = with unstable; [
     # Internet
     firefox                                     # Web Browser
     google-chrome                               # Web Browser
-    #qbittorrent                                 # Torrents
+    #qbittorrent                                # Torrents
     telegram-desktop                            # Instant Messaging
     thunderbird                                 # Email manager
     tor-browser                                 # Web Browser
 
-    # Games
-    cemu                                        # Nintendo Wii U Emulator
-    lutris
-
     # Utilities and Others
     anydesk                                     # Desktop sharing and remote support
     bitwarden                                   # Password manager
-    cpio                                        # Support for cpio
-    flashrom                                    # Flash Chips Flasher
     helvum                                      # Pipewire manager
-    innoextract                                 # Extractor of content from .exe installers
     obsidian                                    # Notes
-    pmbootstrap                                 # PostmarketOS manager
     yakuake                                     # Dropdown Terminal
-    libsForQt5.kompare
     typst
-    distrobox
 
     # Multimedia
     audacity                                    # Audio editor
@@ -34,66 +28,77 @@
     gimp                                        # Image editor
     imagemagick                                 # Image conversor
     inkscape                                    # Vectors image editor
-    kdePackages.kdeconnect-kde                  # Remote access to computer from my phone
+    kdePackages.kdeconnect-kde                 # Remote access to computer from my phone
     mediainfo                                   # Info about audio/video/subtitle
     mpv                                         # Video reproductor
     obs-studio                                  # Audio/Video recoder
     vlc                                         # Video reproductor
     yt-dlp                                      # Download videos from YouTube
     spotify
-
-    # Development tooling
-    act                                         # Simulator of GitHub Actions using Docker
+  ] 
+  ++ (if workstationDevice then [
+    # System/Development tooling
+    cpio                                        # Support for cpio
+    flashrom                                    # Flash Chips Flasher
+    distrobox
+    innoextract                                # Extractor of content from .exe installers
+    pmbootstrap                                # PostmarketOS manager
+    libsForQt5.kompare
+    act                                        # Simulator of GitHub Actions using Docker
     android-studio
-    android-tools                               # Android tooling for development and OS manipulation
-    biome                                       # Formatter and linter for JavaScript
+    android-tools                              # Android tooling for development and OS manipulation
+    biome                                      # Formatter and linter for JavaScript
     cambalache
-    cargo-cross                                 # Cross compiler for Rust
-    cmake                                       # Build System
+    cargo-cross                                # Cross compiler for Rust
+    cmake                                      # Build System
     ctags
     dbeaver-bin
     devenv
-    dtc                                         # Device Tree compiler
+    dtc                                        # Device Tree compiler
     gdb
-    gh                                          # GitHub CLI tool
-    jetbrains.idea-ultimate
+    gh                                         # GitHub CLI tool
+    jetbrains.idea-ultimate                    # Games
     jetbrains.pycharm-community
     jetbrains.rust-rover
-    jq                                          # Formatter and query builder for JSON
+    jq                                         # Formatter and query builder for JSON
     okteta
-    pipx                                        # Installer for pip programs in a sandbox
-    poetry                                      # Package manager for Python
-    ruff                                        # Formatter and linter for Python
-    uv                                          # Package manager for Python
+    pipx                                       # Installer for pip programs in a sandbox
+    poetry                                     # Package manager for Python
+    ruff                                       # Formatter and linter for Python
+    uv                                         # Package manager for Python
     vscode
-#    zed-editor
+    #zed-editor
 
     # Programming Languages
-    clang                                       # C / C++
-    deno                                        # Javascript / Typescript
-    dotnet-sdk                                  # .Net / C#
-    flutter                                     # Dart / Flutter
-    go                                          # Go
-    nodejs                                      # Javascript
-    python3                                     # Python 3
-    rustup                                      # Rust
-    zig 
+    clang                                      # C / C++
+    deno                                       # Javascript / Typescript
+    dotnet-sdk                                 # .Net / C#
+    flutter                                    # Dart / Flutter
+    go                                         # Go
+    nodejs                                     # Javascript
+    python3                                    # Python 3
+    rustup                                     # Rust
+    zig
 
     # Language Server Protocols
-    clang-tools                                 # C / C++
-    dockerfile-language-server-nodejs           # Docker
-    gopls                                       # Go
-    kdePackages.qtdeclarative                   # QML
-    lemminx                                     # XML
-    nil                                         # Nix
-    nodePackages.bash-language-server           # Bash
-    nodePackages.typescript-language-server     # Javascript / Typescript
-    omnisharp-roslyn                            # C#
-    python311Packages.python-lsp-server         # Python 3.11
-    vscode-langservers-extracted                # HTML / CSS / LESS / SCSS / Json / Eslint
-    yaml-language-server                        # YAML
+    clang-tools                                # C / C++
+    dockerfile-language-server-nodejs          # Docker
+    gopls                                      # Go
+    kdePackages.qtdeclarative                 # QML
+    lemminx                                    # XML
+    nil                                        # Nix
+    nodePackages.bash-language-server          # Bash
+    nodePackages.typescript-language-server    # Javascript / Typescript
+    omnisharp-roslyn                          # C#
+    python311Packages.python-lsp-server        # Python 3.11
+    vscode-langservers-extracted               # HTML / CSS / LESS / SCSS / Json / Eslint
+    yaml-language-server                       # YAML
 
     # Databases
     sqlite
-  ];
+  ] else [])
+  ++ (if gamingDevice then [
+    cemu                                       # Nintendo Wii U Emulator
+    lutris
+  ] else []);
 }

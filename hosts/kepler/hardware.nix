@@ -2,7 +2,14 @@
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
+  
+  boot.supportedFilesystems = [ "btrfs" ];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.systemd.enable = true;
+  boot.plymouth.enable = true;
+  boot.kernelParams = [ "quiet" "splash" "udev.log_level=0" ];
+  boot.extraModprobeConfig = "";
   boot.initrd.luks.devices."disk".device = "/dev/disk/by-uuid/82feac14-b199-429a-bffe-cff9306b1be9";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" "amdgpu" ];

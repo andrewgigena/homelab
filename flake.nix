@@ -27,18 +27,36 @@
           ./hosts/kepler
         ];
       };
+      voyager = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/voyager
+        ];
+      };
     };
 
+    # Home Manager configurations
     homeConfigurations = {
       "shadows@mimir" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./home ];
+        extraSpecialArgs = { inherit inputs outputs;};
+        modules = [ 
+           ./home
+        ];
       };
       "shadows@kepler" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./home ];
+        extraSpecialArgs = { inherit inputs outputs;};
+        modules = [ 
+           ./home
+        ];
+      };
+      "shadows@voyager" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs;};
+        modules = [ 
+           ./home
+        ];
       };
     };
   };

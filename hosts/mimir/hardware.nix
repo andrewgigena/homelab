@@ -3,6 +3,13 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
+  boot.supportedFilesystems = [ "btrfs" ];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.systemd.enable = true;
+  boot.plymouth.enable = true;
+  boot.kernelParams = [ "quiet" "splash" "udev.log_level=0" ];
+  boot.extraModprobeConfig = "";
   boot.initrd.luks.devices."disk".device = "/dev/disk/by-uuid/01967b4c-767f-4ab5-a273-5f60e27ed319";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
