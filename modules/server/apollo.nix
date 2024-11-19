@@ -27,7 +27,6 @@
         "/disks/nas/configs/nginx/data:/data"
         "/disks/nas/configs/nginx/letsencrypt:/etc/letsencrypt"
       ];
-      extraOptions = [ "--restart=always" ]; 
     };
     pihole = {
       image = "pihole/pihole:latest";
@@ -53,7 +52,6 @@
       extraOptions = [
         "--cap-add=NET_ADMIN"
         "--network=bridge"
-        "--restart=always"
       ];
     };
     ddns-updater = {
@@ -70,7 +68,6 @@
 
       extraOptions = [
         "--network=bridge"
-        "--restart=always"
       ];
     };
   };
