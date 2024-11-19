@@ -157,7 +157,7 @@
     # -----------------------
     # Apollo - Server
     # -----------------------
-    nixosConfigurations.voyager = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.apollo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         # Hardware-wide configurations
