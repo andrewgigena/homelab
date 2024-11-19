@@ -43,31 +43,31 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7940e481-14e5-4f5c-8df4-793d4c77c832";
       fsType = "btrfs";
-      options = [ "subvol=@root" ];
+      options = [ "subvol=@root" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/7940e481-14e5-4f5c-8df4-793d4c77c832";
       fsType = "btrfs";
-      options = [ "subvol=@home" ];
+      options = [ "subvol=@home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/7940e481-14e5-4f5c-8df4-793d4c77c832";
       fsType = "btrfs";
-      options = [ "subvol=@nix" ];
+      options = [ "subvol=@nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
     { device = "/dev/disk/by-uuid/7940e481-14e5-4f5c-8df4-793d4c77c832";
       fsType = "btrfs";
-      options = [ "subvol=@persist" ];
+      options = [ "subvol=@persist" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/var/log" =
     { device = "/dev/disk/by-uuid/7940e481-14e5-4f5c-8df4-793d4c77c832";
       fsType = "btrfs";
-      options = [ "subvol=@log" ];
+      options = [ "subvol=@log" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/boot" =
@@ -75,6 +75,15 @@
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
+
+  # -----------------------
+  # Extra disks
+  # -----------------------
+  fileSystems."/disks/nas" = {
+    device = "/dev/disk/by-uuid/f6b3125d-3bb2-4233-a166-53e421220369";
+    fsType = "btrfs";
+    options = [ "compress=zstd" "noatime" ];
+  };
 
   # -----------------------
   # Memory
