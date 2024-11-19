@@ -170,6 +170,9 @@
         ./modules/system/system.nix
         ./modules/system/users.nix
 
+        # Server configuration
+        ./modules/server/apollo.nix
+
         # User-wide configurations
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
