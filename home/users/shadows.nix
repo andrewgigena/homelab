@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "shadows";
@@ -7,6 +7,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
   systemd.user.startServices = "sd-switch";
+
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.git.enable = true;

@@ -45,6 +45,12 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { 
+            pkgs = import nixpkgs-unstable { 
+              system = "x86_64-linux"; 
+              config.allowUnfree = true;
+            }; 
+          };
           home-manager.users.shadows = lib.mkMerge [
             (import ./home/users/shadows.nix)
             (import ./home/packages/internet.nix)
@@ -89,7 +95,13 @@
         # User-wide configurations
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          home-manager.useUserPackages = true; 
+          home-manager.extraSpecialArgs = { 
+            pkgs = import nixpkgs-unstable { 
+              system = "x86_64-linux"; 
+              config.allowUnfree = true;
+            }; 
+          };
           home-manager.users.shadows = lib.mkMerge [
             (import ./home/users/shadows.nix)
             (import ./home/packages/internet.nix)
@@ -125,6 +137,12 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { 
+            pkgs = import nixpkgs-unstable { 
+              system = "x86_64-linux"; 
+              config.allowUnfree = true;
+            }; 
+          };
           home-manager.users.shadows = lib.mkMerge [
             (import ./home/users/shadows.nix)
             (import ./home/packages/internet.nix)
