@@ -30,6 +30,7 @@
   # -----------------------
   # Kernel things
   # -----------------------
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-intel" "i915" "radeon"];
   # AMDGPU driver don't work on this system
   # Checked on /linux/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c at amdgpu_unsupported_pciidlist

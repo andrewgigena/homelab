@@ -27,6 +27,7 @@
   # -----------------------
   # Kernel things
   # -----------------------
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-intel"];
   boot.extraModprobeConfig = ''
     options iwlwifi power_save=1

@@ -28,6 +28,7 @@
   # -----------------------
   # Kernel things
   # -----------------------
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-amd"];
   boot.extraModprobeConfig = "";
   boot.extraModulePackages = [ ];
