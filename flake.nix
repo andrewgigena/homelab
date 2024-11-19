@@ -36,6 +36,10 @@
         ./modules/services/qemu.nix
         ./modules/services/docker.nix
         ./modules/services/zerotier.nix
+        ./modules/system/bluetooth.nix
+        ./modules/system/nix.nix
+        ./modules/system/system.nix
+        ./modules/system/users.nix
 
         # User-wide configurations
         home-manager.nixosModules.home-manager {
