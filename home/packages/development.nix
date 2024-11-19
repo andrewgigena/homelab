@@ -1,42 +1,7 @@
-{ config, unstable, ... }:
+{ pkgs, ... }:
 
-let
-  gamingDevice = false;
-  workstationDevice = false;
-in
 {
-  home.packages = with unstable; [
-    # Internet
-    firefox                                     # Web Browser
-    google-chrome                               # Web Browser
-    #qbittorrent                                # Torrents
-    telegram-desktop                            # Instant Messaging
-    thunderbird                                 # Email manager
-    tor-browser                                 # Web Browser
-
-    # Utilities and Others
-    anydesk                                     # Desktop sharing and remote support
-    bitwarden                                   # Password manager
-    helvum                                      # Pipewire manager
-    obsidian                                    # Notes
-    yakuake                                     # Dropdown Terminal
-    typst
-
-    # Multimedia
-    audacity                                    # Audio editor
-    ffmpeg                                      # The ultimate media tool
-    gimp                                        # Image editor
-    imagemagick                                 # Image conversor
-    inkscape                                    # Vectors image editor
-    kdePackages.kdeconnect-kde                 # Remote access to computer from my phone
-    mediainfo                                   # Info about audio/video/subtitle
-    mpv                                         # Video reproductor
-    obs-studio                                  # Audio/Video recoder
-    vlc                                         # Video reproductor
-    yt-dlp                                      # Download videos from YouTube
-    spotify
-  ] 
-  ++ (if workstationDevice then [
+  home.packages = with pkgs; [
     # System/Development tooling
     cpio                                        # Support for cpio
     flashrom                                    # Flash Chips Flasher
@@ -96,9 +61,5 @@ in
 
     # Databases
     sqlite
-  ] else [])
-  ++ (if gamingDevice then [
-    cemu                                       # Nintendo Wii U Emulator
-    lutris
-  ] else []);
+  ];
 }

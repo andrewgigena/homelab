@@ -30,7 +30,6 @@
     nmap                # Netork Analyzer
     parted		# Partition Manager
     p7zip               # 7z Support
-    qemu_full           # Virtual machine and architecture emulation
 
     ripgrep             # Fast grep
     rsync               # The cp for network things
