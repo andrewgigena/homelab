@@ -153,6 +153,7 @@
         rocmPackages_5.clr.icd    # OpenCL for RX580
         rocmPackages_5.rocminfo
         rocmPackages_5.rocm-runtime
+        mesa
         mesa.opencl
       ];
     };

@@ -46,7 +46,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { 
-            pkgs = import nixpkgs-unstable { 
+            pkgs-unstable = import nixpkgs-unstable {
               system = "x86_64-linux"; 
               config.allowUnfree = true;
             }; 
@@ -95,9 +95,9 @@
         # User-wide configurations
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true; 
+          home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { 
-            pkgs = import nixpkgs-unstable { 
+            pkgs-unstable = import nixpkgs-unstable {
               system = "x86_64-linux"; 
               config.allowUnfree = true;
             }; 
@@ -138,7 +138,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { 
-            pkgs = import nixpkgs-unstable { 
+            pkgs-unstable = import nixpkgs-unstable {
               system = "x86_64-linux"; 
               config.allowUnfree = true;
             }; 
