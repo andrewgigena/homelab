@@ -14,7 +14,7 @@
     inherit (nixpkgs) lib;
   in {
     # -----------------------
-    # Mimir
+    # Mimir - Workstation
     # -----------------------
     nixosConfigurations.mimir = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -64,7 +64,7 @@
     };
 
     # -----------------------
-    # Kepler
+    # Kepler - Workstation
     # -----------------------
     nixosConfigurations.kepler = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -115,7 +115,7 @@
     };
 
     # -----------------------
-    # Voyager
+    # Voyager - Gaming / Spare
     # -----------------------
     nixosConfigurations.voyager = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -149,6 +149,33 @@
             (import ./home/packages/multimedia.nix)
             (import ./home/packages/utilities.nix)
             (import ./home/packages/gaming.nix)
+          ];
+        }
+      ];
+    };
+
+    # -----------------------
+    # Apollo - Server
+    # -----------------------
+    nixosConfigurations.voyager = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        # Hardware-wide configurations
+        ./hosts/apollo.nix
+
+        # System-wide configurations
+        ./modules/services/general.nix
+        ./modules/services/network.nix
+        ./modules/system/nix.nix
+        ./modules/system/system.nix
+        ./modules/system/users.nix
+
+        # User-wide configurations
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.shadows = lib.mkMerge [
+            (import ./home/users/shadows.nix)
           ];
         }
       ];
