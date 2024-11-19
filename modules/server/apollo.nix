@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.syncthing = {
@@ -56,24 +56,22 @@
         "--restart=always"
       ];
     };
-    containers = {
-      ddns-updater = {
-        image = "qmcgaw/ddns-updater";
-        autoStart = true; 
+    ddns-updater = {
+      image = "qmcgaw/ddns-updater";
+      autoStart = true; 
 
-        ports = [
-          "9249:8000/tcp"
-        ];
+      ports = [
+        "9249:8000/tcp"
+      ];
 
-        volumes = [
-          "/disks/nas/configs/ddns-updater/config.json:/updater/data/config.json"
-        ];
+      volumes = [
+        "/disks/nas/configs/ddns-updater/config.json:/updater/data/config.json"
+      ];
 
-        extraOptions = [
-          "--network=bridge"
-          "--restart=always"
-        ];
-      };
+      extraOptions = [
+        "--network=bridge"
+        "--restart=always"
+      ];
     };
   };
 }
