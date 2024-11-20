@@ -14,4 +14,7 @@
     };
   };
   programs.partition-manager.enable = true;
+  environment.systemPackages = with pkgs; [
+    kdePackages.kdeconnect-kde # Remote access to computer from my phone
+  ];
 }

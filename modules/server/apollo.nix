@@ -4,7 +4,7 @@
   services.syncthing = {
     enable = true;
     user = "shadows";
-    dataDir = "/disks/nas/configs/syncthing";
+    dataDir = "/disks/nas/data/syncthing";
     configDir = "/disks/nas/configs/syncthing";
   };
 
@@ -28,6 +28,7 @@
         "/disks/nas/configs/nginx/letsencrypt:/etc/letsencrypt"
       ];
     };
+
     pihole = {
       image = "pihole/pihole:latest";
       autoStart = true;
@@ -54,6 +55,7 @@
         "--network=bridge"
       ];
     };
+
     ddns-updater = {
       image = "qmcgaw/ddns-updater";
       autoStart = true; 
@@ -70,5 +72,9 @@
         "--network=bridge"
       ];
     };
+
+    # TODO: Setup the following containers instead of using native ones:
+    # - Owntracks
+    # - Syncthing
   };
 }
