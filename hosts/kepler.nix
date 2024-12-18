@@ -146,8 +146,6 @@
     amdgpu.initrd.enable = true;
     opengl = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
       extraPackages = with pkgs; [
         rocmPackages_5.clr        # OpenCL for RX580
         rocmPackages_5.clr.icd    # OpenCL for RX580
