@@ -24,4 +24,8 @@
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.oh-my-zsh.plugins = [ "git" "sudo" ];
   programs.zsh.oh-my-zsh.theme = "agnoster";
+  services.ssh-agent.enable = true;
+  home.sessionPath = [
+    "/home/shadows/.cargo/bin"
+  ];
 }

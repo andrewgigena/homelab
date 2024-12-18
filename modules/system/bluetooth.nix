@@ -4,10 +4,10 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-      };
-    };
+    #settings = {
+    #  General = {
+    #    Enable = "Source,Sink,Media,Socket";
+    #  };
+    #};
   };
 }

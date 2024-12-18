@@ -101,7 +101,7 @@
   };
 
   # - Legolas - WDC WD10JPVX-60JC3T0
-  fileSystems."/disks/legolas" = {
+  fileSystems."/disks/postmarketos" = {
     device = "/dev/disk/by-uuid/0090e30f-007a-45ea-a23f-6868a371a41d";
     fsType = "btrfs";
     options = [ "compress=zstd" "noatime" "nofail" "x-systemd.device-timeout=5"];

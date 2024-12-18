@@ -8,5 +8,6 @@
     #qbittorrent     # Torrents
     telegram-desktop # Instant Messaging
     thunderbird      # Email manager
+    element-desktop
   ];
 }
