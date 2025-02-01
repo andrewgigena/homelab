@@ -13,7 +13,6 @@
     amdgpu_top          # GPU usage visualizer
     axel                # Download manager
     bat                 # Alternative to cat
-    binwalk             # File/Binary Analyzer
     dig                 # DNS Analyzer
     dust                # File size usage explorer
     eza                 # Alternative to ls
@@ -30,7 +29,9 @@
     nmap                # Netork Analyzer
     parted		# Partition Manager
     p7zip               # 7z Support
-
+    unrar	
+    unzip
+    gptfdisk
     ripgrep             # Fast grep
     rsync               # The cp for network things
     tldr                # Man made easy
@@ -45,6 +46,7 @@
     wayland-utils
     usbutils
     trashy
+    xxd
 #     alsa-utils
     ocl-icd            # OpenCL
   ];

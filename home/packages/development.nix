@@ -13,7 +13,6 @@
     pkgs-unstable.android-tools                              # Android tooling for development and OS manipulation
     pkgs-unstable.biome                                      # Formatter and linter for JavaScript
     pkgs-unstable.cambalache
-    pkgs-unstable.cargo-cross                                # Cross compiler for Rust
     pkgs-unstable.cmake                                      # Build System
     pkgs-unstable.dbeaver-bin
     pkgs-unstable.devenv
@@ -67,5 +66,10 @@
 
     # Nix
     pkgs.devbox
+
+    pkgs.virtiofsd
+
+    # Binwalk v3
+    pkgs-unstable.binwalk
   ];
 }

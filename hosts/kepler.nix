@@ -39,6 +39,7 @@
     "video=DP-1:1920x1080@60.00"
     "video=DP-2:1920x1080@60.00,panel_orientation=left_side_up"
     "video=HDMI-A-1:2560x1080@74.99"
+    "kvm.enable_virt_at_load=0"
   ];
 
   # -----------------------
@@ -100,11 +101,11 @@
     options = [ "compress=zstd" "noatime" "nofail" "x-systemd.device-timeout=5"];
   };
 
-  # - Legolas - WDC WD10JPVX-60JC3T0
+  # - PostmarketOS - WDC WD10JPVX-60JC3T0
   fileSystems."/disks/postmarketos" = {
     device = "/dev/disk/by-uuid/0090e30f-007a-45ea-a23f-6868a371a41d";
-    fsType = "btrfs";
-    options = [ "compress=zstd" "noatime" "nofail" "x-systemd.device-timeout=5"];
+    fsType = "ext4";
+    options = [ "defaults" "noatime" "nofail" "async" "x-systemd.device-timeout=5"];
   };
 
   # -----------------------
@@ -144,7 +145,7 @@
   nixpkgs.config.rocmSupport = true;
   hardware = {
     amdgpu.initrd.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = with pkgs; [
         rocmPackages_5.clr        # OpenCL for RX580

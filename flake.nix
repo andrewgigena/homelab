@@ -109,6 +109,8 @@
             (import ./home/packages/utilities.nix)
             (import ./home/packages/development.nix)
             (import ./home/packages/gaming.nix)
+            (import ./home/packages/electronics.nix)
+            (import ./home/packages/windows.nix)
           ];
         }
       ];
@@ -166,7 +168,8 @@
         # System-wide configurations
         ./modules/services/general.nix
         ./modules/services/network.nix
-        ./modules/system/nix.nix
+	./modules/services/zerotier.nix
+	./modules/system/nix.nix
         ./modules/system/system.nix
         ./modules/system/users.nix
 
