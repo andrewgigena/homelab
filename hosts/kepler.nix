@@ -187,4 +187,11 @@
     "aarch64-linux"
     "riscv64-linux"
   ];
+
+  # -----------------------
+  # VPN
+  # -----------------------
+  services.tailscale.extraSetFlags = [
+    "--accept-routes"
+  ];
 }
