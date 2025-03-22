@@ -92,6 +92,49 @@
 	"--network=apollo"
       ];
     };
+
+    mariela-strapi = {
+      image = "vshadbolt/strapi";
+      autoStart = true;
+      ports = [ "1337:1337" ];
+      volumes = [ "/disks/nas/data/mariela-strapi/backend:/srv/app" ];
+      extraOptions = [ 
+        "--name=mariela-strapi"
+        "--network=apollo"
+      ];
+    };
+
+    frigate = {
+      image = "ghcr.io/blakeblackshear/frigate:stable-rocm";
+      autoStart = true;
+      ports = [
+        "8971:8971"
+        "8554:8554"
+        "8555:8555/tcp"
+        "8555:8555/udp"
+      ];
+      volumes = [
+        "/disks/nas/data/frigate:/media/frigate"
+        "/disks/nas/configs/frigate:/config"
+        "/etc/localtime:/etc/localtime:ro"
+      ];
+      environment = {
+        FRIGATE_RTSP_PASSWORD = "password";
+      };
+      extraOptions = [
+        # Device passthrough
+        "--device=/dev/kfd"
+        "--device=/dev/dri"
+        
+        # Shared memory
+        "--shm-size=1G"
+        
+        # Network and stop configuration
+        "--network=apollo"
+        "--stop-timeout=30"
+      ];
+    };
+    
   };
 
   systemd.services."docker-network-apollo" = {
@@ -103,4 +146,7 @@
       ${pkgs.docker}/bin/docker network create apollo --subnet 172.20.0.0/16
     '';
   };
+
+
+
 }
