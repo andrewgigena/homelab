@@ -49,5 +49,6 @@
     xxd
 #     alsa-utils
     ocl-icd            # OpenCL
+    xsel
   ];
 }

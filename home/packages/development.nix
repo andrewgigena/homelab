@@ -29,7 +29,7 @@
     pkgs-unstable.ruff                                       # Formatter and linter for Python
     pkgs-unstable.uv                                         # Package manager for Python
     pkgs.vscode
-    #pkgs-unstable.zed-editor
+    pkgs-unstable.zed-editor
     pkgs-unstable.universal-ctags
 
     # Programming Languages
