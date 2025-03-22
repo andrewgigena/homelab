@@ -169,6 +169,7 @@
         ./modules/services/general.nix
         ./modules/services/network.nix
 	./modules/services/zerotier.nix
+	./modules/services/tailscale.nix
 	./modules/system/nix.nix
         ./modules/system/system.nix
         ./modules/system/users.nix

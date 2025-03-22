@@ -118,4 +118,10 @@
     "aarch64-linux"
     "riscv64-linux"
   ];
+
+  # VPN
+  services.tailscale.extraSetFlags = [
+    "--advertise-routes=192.168.1.0/24,192.168.2.0/24"
+    "--accept-dns=false"
+  ];
 }
