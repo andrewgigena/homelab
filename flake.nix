@@ -45,11 +45,11 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { 
+          home-manager.extraSpecialArgs = {
             pkgs-unstable = import nixpkgs-unstable {
-              system = "x86_64-linux"; 
+              system = "x86_64-linux";
               config.allowUnfree = true;
-            }; 
+            };
           };
           home-manager.users.shadows = lib.mkMerge [
             (import ./home/users/shadows.nix)
@@ -87,6 +87,7 @@
         ./modules/services/qemu.nix
         ./modules/services/docker.nix
         ./modules/services/zerotier.nix
+        ./modules/services/tailscale.nix
         ./modules/system/bluetooth.nix
         ./modules/system/nix.nix
         ./modules/system/system.nix
@@ -96,11 +97,11 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { 
+          home-manager.extraSpecialArgs = {
             pkgs-unstable = import nixpkgs-unstable {
-              system = "x86_64-linux"; 
+              system = "x86_64-linux";
               config.allowUnfree = true;
-            }; 
+            };
           };
           home-manager.users.shadows = lib.mkMerge [
             (import ./home/users/shadows.nix)
@@ -139,11 +140,11 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { 
+          home-manager.extraSpecialArgs = {
             pkgs-unstable = import nixpkgs-unstable {
-              system = "x86_64-linux"; 
+              system = "x86_64-linux";
               config.allowUnfree = true;
-            }; 
+            };
           };
           home-manager.users.shadows = lib.mkMerge [
             (import ./home/users/shadows.nix)
@@ -168,9 +169,9 @@
         # System-wide configurations
         ./modules/services/general.nix
         ./modules/services/network.nix
-	./modules/services/zerotier.nix
-	./modules/services/tailscale.nix
-	./modules/system/nix.nix
+       	./modules/services/zerotier.nix
+       	./modules/services/tailscale.nix
+       	./modules/system/nix.nix
         ./modules/system/system.nix
         ./modules/system/users.nix
 
