@@ -5,7 +5,7 @@
     firefox           # Web Browser
     google-chrome    # Web Browser
     tor-browser      # Web Browser
-    #qbittorrent     # Torrents
+    qbittorrent     # Torrents
     telegram-desktop # Instant Messaging
     thunderbird      # Email manager
     element-desktop
