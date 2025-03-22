@@ -36,6 +36,7 @@
         ./modules/services/qemu.nix
         ./modules/services/docker.nix
         ./modules/services/zerotier.nix
+        ./modules/services/tailscale.nix
         ./modules/system/bluetooth.nix
         ./modules/system/nix.nix
         ./modules/system/system.nix
