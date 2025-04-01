@@ -1,4 +1,4 @@
-{ pkgs, config, lib, modulesPath, ... }:
+{ pkgs, lib, modulesPath, ... }:
 
 {
   # -----------------------
@@ -15,7 +15,7 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.device = "/dev/disk/by-id/wwn-0x50014ee208d0b014";
   boot.loader.grub.gfxmodeBios = "1366x768";
-  boot.loader.grub.gfxpayloadBios = "keep"; 
+  boot.loader.grub.gfxpayloadBios = "keep";
   boot.loader.grub.enableCryptodisk = true;
 
   # -----------------------

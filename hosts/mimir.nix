@@ -1,4 +1,4 @@
-{ pkgs, config, lib, modulesPath, ... }:
+{ pkgs, lib, modulesPath, ... }:
 
 {
   # -----------------------
@@ -94,6 +94,10 @@
   networking.useDHCP = lib.mkDefault true;
   networking.hostName = "mimir";
   networking.networkmanager.enable = true;
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
+
 
   # -----------------------
   # Firmware
@@ -162,7 +166,7 @@
   };
 
   # OpenGL and Others
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       libvdpau-va-gl # Video acceleration

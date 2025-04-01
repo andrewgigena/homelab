@@ -19,30 +19,22 @@
     nixosConfigurations.mimir = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # Hardware-wide configurations
+        # Hardware configurations
         ./hosts/mimir.nix
+        ./common/hardware/audio.nix
+        ./common/hardware/bluetooth.nix
+        ./common/hardware/printing.nix
+        ./common/hardware/ssd.nix
 
-        # System-wide configurations
-        ./modules/desktop/kde.nix
-        ./modules/services/audio.nix
-        ./modules/services/flatpak.nix
-        ./modules/services/gaming.nix
-        ./modules/services/general.nix
-        ./modules/services/kdeconnect.nix
-        ./modules/services/network.nix
-        ./modules/services/printing.nix
-        ./modules/services/ssd.nix
-        ./modules/services/syncthing.nix
-        ./modules/services/qemu.nix
-        ./modules/services/docker.nix
-        ./modules/services/zerotier.nix
-        ./modules/services/tailscale.nix
-        ./modules/system/bluetooth.nix
-        ./modules/system/nix.nix
-        ./modules/system/system.nix
-        ./modules/system/users.nix
+        # System configurations
+        ./common/configurations/desktop.nix
+        ./common/configurations/network.nix
+        ./common/configurations/system.nix
 
-        # User-wide configurations
+        # System users
+        ./common/users/system/shadows.nix
+
+        # Users configurations
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -53,14 +45,25 @@
             };
           };
           home-manager.users.shadows = lib.mkMerge [
-            (import ./home/users/shadows.nix)
-            (import ./home/packages/internet.nix)
-            (import ./home/packages/multimedia.nix)
-            (import ./home/packages/utilities.nix)
-            (import ./home/packages/development.nix)
-            (import ./home/packages/gaming.nix)
+            (import ./common/users/home/shadows.nix)
+            (import ./packages/internet.nix)
+            (import ./packages/multimedia.nix)
+            (import ./packages/utilities.nix)
+            (import ./packages/development.nix)
+            (import ./packages/gaming.nix)
           ];
         }
+
+        # System services
+        ./common/services/adb.nix
+        ./common/services/docker.nix
+        ./common/services/flatpak.nix
+        ./common/services/gaming.nix
+        ./common/services/kdeconnect.nix
+        ./common/services/qemu.nix
+        ./common/services/syncthing.nix
+        ./common/services/tailscale.nix
+        ./common/services/zerotier.nix
       ];
     };
 
@@ -70,31 +73,22 @@
     nixosConfigurations.kepler = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # Hardware-wide configurations
+        # Hardware configurations
         ./hosts/kepler.nix
+        ./common/hardware/audio.nix
+        ./common/hardware/bluetooth.nix
+        ./common/hardware/printing.nix
+        ./common/hardware/ssd.nix
 
-        # System-wide configurations
-        ./modules/desktop/kde.nix
-        ./modules/services/audio.nix
-        ./modules/services/flatpak.nix
-        ./modules/services/gaming.nix
-        ./modules/services/general.nix
-        ./modules/services/kdeconnect.nix
-        ./modules/services/network.nix
-        ./modules/services/ollama.nix
-        ./modules/services/printing.nix
-        ./modules/services/ssd.nix
-        ./modules/services/syncthing.nix
-        ./modules/services/qemu.nix
-        ./modules/services/docker.nix
-        ./modules/services/zerotier.nix
-        ./modules/services/tailscale.nix
-        ./modules/system/bluetooth.nix
-        ./modules/system/nix.nix
-        ./modules/system/system.nix
-        ./modules/system/users.nix
+        # System configurations
+        ./common/configurations/desktop.nix
+        ./common/configurations/network.nix
+        ./common/configurations/system.nix
 
-        # User-wide configurations
+        # System users
+        ./common/users/system/shadows.nix
+
+        # Users configurations
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -105,16 +99,28 @@
             };
           };
           home-manager.users.shadows = lib.mkMerge [
-            (import ./home/users/shadows.nix)
-            (import ./home/packages/internet.nix)
-            (import ./home/packages/multimedia.nix)
-            (import ./home/packages/utilities.nix)
-            (import ./home/packages/development.nix)
-            (import ./home/packages/gaming.nix)
-            (import ./home/packages/electronics.nix)
-            (import ./home/packages/windows.nix)
+            (import ./common/users/home/shadows.nix)
+            (import ./packages/internet.nix)
+            (import ./packages/multimedia.nix)
+            (import ./packages/utilities.nix)
+            (import ./packages/development.nix)
+            (import ./packages/gaming.nix)
+            (import ./packages/electronics.nix)
+            (import ./packages/windows.nix)
           ];
         }
+
+        # Services
+        ./common/services/adb.nix
+        ./common/services/docker.nix
+        ./common/services/flatpak.nix
+        ./common/services/gaming.nix
+        ./common/services/kdeconnect.nix
+        ./common/services/ollama.nix
+        ./common/services/qemu.nix
+        ./common/services/syncthing.nix
+        ./common/services/tailscale.nix
+        ./common/services/zerotier.nix
       ];
     };
 
@@ -124,20 +130,20 @@
     nixosConfigurations.voyager = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # Hardware-wide configurations
+        # Hardware configurations
         ./hosts/voyager.nix
+        ./common/hardware/audio.nix
+        ./common/hardware/bluetooth.nix
 
-        # System-wide configurations
-        ./modules/desktop/kde.nix
-        ./modules/services/audio.nix
-        ./modules/services/general.nix
-        ./modules/services/network.nix
-        ./modules/system/bluetooth.nix
-        ./modules/system/nix.nix
-        ./modules/system/system.nix
-        ./modules/system/users.nix
+        # System configurations
+        ./common/configurations/desktop.nix
+        ./common/configurations/network.nix
+        ./common/configurations/system.nix
 
-        # User-wide configurations
+        # System users
+        ./common/users/system/shadows.nix
+
+        # Users configurations
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -148,11 +154,11 @@
             };
           };
           home-manager.users.shadows = lib.mkMerge [
-            (import ./home/users/shadows.nix)
-            (import ./home/packages/internet.nix)
-            (import ./home/packages/multimedia.nix)
-            (import ./home/packages/utilities.nix)
-            (import ./home/packages/gaming.nix)
+            (import ./common/users/home/shadows.nix)
+            (import ./packages/internet.nix)
+            (import ./packages/multimedia.nix)
+            (import ./packages/utilities.nix)
+            (import ./packages/gaming.nix)
           ];
         }
       ];
@@ -164,29 +170,29 @@
     nixosConfigurations.apollo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # Hardware-wide configurations
+        # Hardware configurations
         ./hosts/apollo.nix
 
-        # System-wide configurations
-        ./modules/services/general.nix
-        ./modules/services/network.nix
-       	./modules/services/zerotier.nix
-       	./modules/services/tailscale.nix
-       	./modules/system/nix.nix
-        ./modules/system/system.nix
-        ./modules/system/users.nix
+        # System configurations
+        ./common/configurations/network.nix
+        ./common/configurations/system.nix
 
-        # Server configuration
-        ./modules/server/apollo.nix
+        # System users
+        ./common/users/system/shadows.nix
 
-        # User-wide configurations
+        # Users configurations
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.shadows = lib.mkMerge [
-            (import ./home/users/shadows.nix)
+            (import ./common/users/home/shadows.nix)
           ];
         }
+
+        # Services
+        ./hosts/apollo_services.nix
+       	./common/services/tailscale.nix
+       	./common/services/zerotier.nix
       ];
     };
   };
