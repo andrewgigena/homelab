@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # -----------------------
@@ -8,6 +8,12 @@
     "--advertise-routes=192.168.1.0/24,192.168.2.0/24"
     "--accept-dns=false"
   ];
+
+  # -----------------------
+  # Cloudflare for exposed services
+  # -----------------------
+  services.cloudflared.enable = true;
+
 
   # -----------------------
   # Homepage for VPN Network
@@ -73,32 +79,55 @@
     services = [
       {
         "Multimedia" = [
-          { "Jellyfin" = { icon = "jellyfin.svg"; description = "Plataforma para ver tus series y películas en casa"; href = "http://jellyfin.andrewgigena.dev/"; }; }
-          { "Sonarr" = { icon = "sonarr.svg"; description = "Organiza y descarga series de TV automáticamente"; href = "http://sonarr.andrewgigena.dev/"; }; }
-          { "Radarr" = { icon = "radarr.svg"; description = "Organiza y descarga películas automáticamente"; href = "http://radarr.andrewgigena.dev/"; }; }
-          { "Lidarr" = { icon = "lidarr.svg"; description = "Organiza y descarga música automáticamente"; href = "http://lidarr.andrewgigena.dev/"; }; }
-          { "Readarr" = { icon = "readarr.svg"; description = "Organiza y descarga libros & audiolibros automáticamente"; href = "http://readarr.andrewgigena.dev/"; }; }
+          { "Jellyfin" = { icon = "jellyfin.svg"; description = "Plataforma para ver tus series y películas en casa"; href = "https://jellyfin.andrewgigena.dev/"; }; }
+          { "Sonarr" = { icon = "sonarr.svg"; description = "Organiza y descarga series de TV automáticamente"; href = "https://sonarr.andrewgigena.dev/"; }; }
+          { "Radarr" = { icon = "radarr.svg"; description = "Organiza y descarga películas automáticamente"; href = "https://radarr.andrewgigena.dev/"; }; }
+          { "Lidarr" = { icon = "lidarr.svg"; description = "Organiza y descarga música automáticamente"; href = "https://lidarr.andrewgigena.dev/"; }; }
+          { "Readarr" = { icon = "readarr.svg"; description = "Organiza y descarga libros & audiolibros automáticamente"; href = "https://readarr.andrewgigena.dev/"; }; }
         ];
       }
       {
         "Gestión de Servidores" = [
-          { "Nginx Proxy Manager" = { icon = "nginx-proxy-manager.svg"; description = "Gestor de accesos y seguridad para servidores"; href = "http://nginx.andrewgigena.dev/"; }; }
-          { "Pihole" = { icon = "pi-hole.svg"; description = "Bloqueador de anuncios para toda tu red"; href = "http://pihole.andrewgigena.dev/"; }; }
-          { "Homepage Dashboard" = { icon = "homepage.png"; description = "Panel centralizado para gestionar y visualizar tus servicios"; href = "http://home.andrewgigena.dev/"; }; }
-          { "qBittorrent" = { icon = "qbittorrent.svg"; description = "Cliente para descargar y gestionar torrents"; href = "http://qbittorrent.andrewgigena.dev/"; }; }
+          { "Nginx Proxy Manager" = { icon = "nginx-proxy-manager.svg"; description = "Gestor de accesos y seguridad para servidores"; href = "https://nginx.andrewgigena.dev/"; }; }
+          { "Pihole" = { icon = "pi-hole.svg"; description = "Bloqueador de anuncios para toda tu red"; href = "https://pihole.andrewgigena.dev/"; }; }
+          { "Homepage Dashboard" = { icon = "homepage.png"; description = "Panel centralizado para gestionar y visualizar tus servicios"; href = "https://home.andrewgigena.dev/"; }; }
+          { "qBittorrent" = { icon = "qbittorrent.svg"; description = "Cliente para descargar y gestionar torrents"; href = "https://qbittorrent.andrewgigena.dev/"; }; }
         ];
       }
       {
         "Automatización y Sincronización" = [
-          { "Bazarr" = { icon = "bazarr.svg"; description = "Automatiza la descarga y gestión de subtítulos"; href = "http://bazarr.andrewgigena.dev/"; }; }
-          { "Prowlarr" = { icon = "prowlarr.svg"; description = "Administra indexadores para búsquedas de contenido"; href = "http://prowlarr.andrewgigena.dev/"; }; }
-          { "Syncthing (apollo)" = { icon = "syncthing.svg"; description = "Sincronización de archivos entre dispositivos"; href = "http://syncthing.andrewgigena.dev/"; }; }
+          { "Bazarr" = { icon = "bazarr.svg"; description = "Automatiza la descarga y gestión de subtítulos"; href = "https://bazarr.andrewgigena.dev/"; }; }
+          { "Prowlarr" = { icon = "prowlarr.svg"; description = "Administra indexadores para búsquedas de contenido"; href = "https://prowlarr.andrewgigena.dev/"; }; }
+          { "Syncthing (apollo)" = { icon = "syncthing.svg"; description = "Sincronización de archivos entre dispositivos"; href = "https://syncthing.andrewgigena.dev/"; }; }
         ];
       }
       {
         "Monitoreo" = [
-          { "Frigate" = { icon = "frigate.svg"; description = "Sistema de videovigilancia con detección inteligente"; href = "http://frigate.andrewgigena.dev/"; }; }
-          { "OwnTracks" = { icon = "owntracks.svg"; description = "Aplicación para compartir y rastrear ubicaciones"; href = "http://owntracks-ui.andrewgigena.dev/"; }; }
+          {
+            "Uptime Kuma" = {
+              icon = "uptime-kuma.svg";
+              description = "Estado de salud de todos los servicios";
+              href = "https://uptime.andrewgigena.dev/status/default";
+              widget = {
+                type = "uptimekuma";
+                url = "http://localhost:3001";
+                slug = "default";
+              };
+            };
+          }
+          {
+            "Frigate" = {
+              icon = "frigate.svg";
+              description = "Sistema de videovigilancia con detección inteligente";
+              href = "https://frigate.andrewgigena.dev/";
+            };
+          }
+          { "OwnTracks" = { icon = "owntracks.svg"; description = "Aplicación para compartir y rastrear ubicaciones"; href = "https://owntracks-ui.andrewgigena.dev/"; }; }
+        ];
+      }
+      {
+        "Ofimatica" = [
+          { "Flatnotes" = { icon = "flatnotes.svg"; description = "Gestor de notas en Markdown, simple y ligero"; href = "https://notes.andrewgigena.dev/"; }; }
         ];
       }
     ];
@@ -115,9 +144,14 @@
     printing.browsing = true;
     printing.defaultShared = true;
     printing.openFirewall = true;
+    printing.snmpConf = ''
+      Address @LOCAL
+      Address 100.100.1.0/24
+    '';
     avahi.enable = true;
     avahi.publish.enable = true;
     avahi.publish.userServices = true;
+    avahi.publish.addresses = true;
   };
 
   # -----------------------
@@ -144,8 +178,8 @@
     openDefaultPorts = true;
     guiAddress = "0.0.0.0:8384";
     user = "shadows";
-    dataDir = "/disks/nas/data/syncthing";
-    configDir = "/disks/nas/configs/syncthing";
+    dataDir = "/disks/secondary/data/syncthing";
+    configDir = "/disks/secondary/configs/syncthing";
   };
 
   # -----------------------
@@ -158,6 +192,42 @@
   services.lidarr.enable = true;
   services.bazarr.enable = true;
   services.jellyfin.enable = true;
+  # -----------------------
+  # Local services: file-sharing service
+  # -----------------------
+
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    nsswins = true;
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = config.networking.hostName;
+        "netbios name" = config.networking.hostName;
+        "security" = "user";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+      };
+      "nas" = {
+        path = "/disks/secondary/nas";  # Change this to your desired folder path
+        browseable = "yes";
+        "public" = "yes";
+        "read only" = "no";
+        "guest ok" = "yes";  # Allow guest access (remove for user authentication)
+        "force user" = "shadows";
+        "force group" = "users";
+        comment = "NAS";
+      };
+    };
+  };
+  # make shares visible for windows 10 clients
+  services.samba-wsdd = {
+    enable = true;
+    workgroup = "WORKGROUP";
+    openFirewall = true;
+    hostname = config.networking.hostName;
+  };
 
   # -----------------------
   # Docker-based services
@@ -174,8 +244,8 @@
         "443:443"
       ];
       volumes = [
-        "/disks/nas/configs/nginx/data:/data"
-        "/disks/nas/configs/nginx/letsencrypt:/etc/letsencrypt"
+        "/disks/secondary/configs/nginx/data:/data"
+        "/disks/secondary/configs/nginx/letsencrypt:/etc/letsencrypt"
       ];
 
       extraOptions = [
@@ -191,12 +261,12 @@
         "53:53/tcp"
         "53:53/udp"
         "67:67/udp"
-        "8000:80/tcp"
+        "9180:80/tcp"
       ];
 
       volumes = [
-        "/disks/nas/configs/pihole/pihole/:/etc/pihole"
-        "/disks/nas/configs/pihole/dnsmasq/:/etc/dnsmasq.d"
+        "/disks/secondary/configs/pihole/pihole/:/etc/pihole"
+        "/disks/secondary/configs/pihole/dnsmasq/:/etc/dnsmasq.d"
       ];
 
       environment = {
@@ -219,7 +289,7 @@
     #   ];
 
     #   volumes = [
-    #     "/disks/nas/configs/ddns-updater:/updater/data"
+    #     "/disks/secondary/configs/ddns-updater:/updater/data"
     #   ];
 
 
@@ -237,8 +307,8 @@
         OTR_PORT = "0"; # Disable MQTT by setting the environment variable.
       };
       volumes = [
-        "/disks/nas/configs/owntracks:/config"
-        "/disks/nas/data/owntracks:/store"
+        "/disks/secondary/configs/owntracks:/config"
+        "/disks/secondary/data/owntracks:/store"
       ];
       autoStart = true;
       extraOptions = [
@@ -263,13 +333,25 @@
       ];
     };
 
-    mariela-strapi = {
+
+    mariela-strapi-prod = {
       image = "vshadbolt/strapi";
       autoStart = true;
       ports = [ "1337:1337" ];
-      volumes = [ "/disks/nas/data/mariela-strapi/backend:/srv/app" ];
+      volumes = [ "/disks/secondary/marielabarcelo/api:/srv/app" ];
       extraOptions = [
-        "--name=mariela-strapi"
+        "--name=mariela-strapi-prod"
+        "--network=apollo"
+      ];
+    };
+
+    mariela-strapi-dev = {
+      image = "vshadbolt/strapi";
+      autoStart = true;
+      ports = [ "1338:1337" ];
+      volumes = [ "/disks/secondary/marielabarcelo/dev:/srv/app" ];
+      extraOptions = [
+        "--name=mariela-strapi-dev"
         "--network=apollo"
       ];
     };
@@ -284,8 +366,8 @@
         "8555:8555/udp"
       ];
       volumes = [
-        "/disks/nas/data/frigate:/media/frigate"
-        "/disks/nas/configs/frigate:/config"
+        "/disks/secondary/data/frigate:/media/frigate"
+        "/disks/secondary/configs/frigate:/config"
         "/etc/localtime:/etc/localtime:ro"
       ];
       environment = {
@@ -304,6 +386,48 @@
         "--stop-timeout=30"
       ];
     };
+
+    flatnotes = {
+      image = "dullage/flatnotes:latest";
+      autoStart = true;
+      ports = [
+        "24824:8080"
+      ];
+      volumes = [
+        "/disks/secondary/data/syncthing/flatnotes:/data"
+      ];
+      environment = {
+        FLATNOTES_AUTH_TYPE = "none";
+      };
+      extraOptions = [
+        "--network=apollo"
+      ];
+    };
+
+    flaresolverr = {
+      image = "ghcr.io/flaresolverr/flaresolverr:latest";
+      autoStart = true;
+      ports = [
+        "8191:8191"
+      ];
+      environment = {
+        LOG_LEVEL = "info";
+      };
+      extraOptions = [
+        "--network=apollo"
+      ];
+    };
+
+    uptime-kuma = {
+          image = "louislam/uptime-kuma:1";
+          autoStart = true;
+          ports = [ "3001:3001" ];
+          volumes = [ "/disks/secondary/configs/uptime-kuma:/app/data" ];
+          extraOptions = [
+            "--network=host"
+            "--dns=127.0.0.1"
+          ];
+        };
   };
 
   systemd.services."docker-network-apollo" = {

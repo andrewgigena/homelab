@@ -35,7 +35,34 @@
     "quiet"
     "splash"
     "udev.log_level=0"
+    "zswap.enabled=1"
+    "zswap.compressor=zstd"
+    "zswap.max_pool_percent=50"
   ];
+
+  # -----------------------
+  # GPU Support
+  # -----------------------
+  environment.sessionVariables = {
+    ROC_ENABLE_PRE_VEGA = "1";
+    RUSTICL_ENABLE = "radeonsi";
+  };
+
+  nixpkgs.config.rocmSupport = true;
+  hardware = {
+    amdgpu.initrd.enable = true;
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        rocmPackages_5.clr        # OpenCL for RX580
+        rocmPackages_5.clr.icd    # OpenCL for RX580
+        rocmPackages_5.rocminfo
+        rocmPackages_5.rocm-runtime
+        mesa
+        mesa.opencl
+      ];
+    };
+  };
 
   # -----------------------
   # Main disk
@@ -79,7 +106,7 @@
   # -----------------------
   # Extra disks
   # -----------------------
-  fileSystems."/disks/nas" = {
+  fileSystems."/disks/secondary" = {
     device = "/dev/disk/by-uuid/f6b3125d-3bb2-4233-a166-53e421220369";
     fsType = "btrfs";
     options = [ "compress=zstd" "noatime" ];
@@ -88,7 +115,7 @@
   # -----------------------
   # Memory
   # -----------------------
-  swapDevices = [ ];
+  swapDevices = [ { device = "/swapfile"; size = 4*1024;} ];
 
   # -----------------------
   # Network
