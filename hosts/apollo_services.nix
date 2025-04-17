@@ -163,7 +163,7 @@
 
   systemd.services."qbittorrent-webui" = {
     description = "Starts qBittorrent webui";
-    serviceConfig.Type = "oneshot";
+    serviceConfig.Type = "simple";
     wantedBy = [ "multi-user.target" ];
     script = ''
       ${pkgs.qbittorrent-nox}/bin/qbittorrent-nox
