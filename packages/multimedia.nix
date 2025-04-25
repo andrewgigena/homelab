@@ -13,5 +13,6 @@
     vlc                                         # Video reproductor
     yt-dlp                                      # Download videos from YouTube
     spotify
+    jellyfin-media-player
   ];
 }
