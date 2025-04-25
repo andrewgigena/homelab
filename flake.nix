@@ -171,10 +171,10 @@
         }
 
         # Packages
-        ./packages/internet.nix
-        ./packages/multimedia.nix
-        ./packages/utilities.nix
-        ./packages/gaming.nix
+        (import ./packages/internet.nix)
+        (import ./packages/multimedia.nix)
+        (import ./packages/utilities.nix)
+        (import ./packages/gaming.nix)
       ];
     };
 
