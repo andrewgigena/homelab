@@ -1,7 +1,7 @@
 { pkgs, pkgs-unstable, ... }:
 
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     anydesk     # Desktop sharing and remote support
     bitwarden   # Password manager
     helvum      # Pipewire manager

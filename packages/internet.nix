@@ -1,7 +1,7 @@
 { pkgs, pkgs-unstable, ... }:
 
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     firefox           # Web Browser
     google-chrome    # Web Browser
     tor-browser      # Web Browser

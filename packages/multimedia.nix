@@ -1,7 +1,7 @@
 { pkgs, pkgs-unstable, ... }:
 
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     audacity                                    # Audio editor
     ffmpeg                                      # The ultimate media tool
     gimp                                        # Image editor

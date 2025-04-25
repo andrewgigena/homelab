@@ -2,7 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    cemu      # Nintendo Wii U Emulator
-    lutris
+    minikube
+    kind
+    kubectl
   ];
 }

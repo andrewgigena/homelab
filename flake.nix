@@ -46,11 +46,6 @@
           };
           home-manager.users.shadows = lib.mkMerge [
             (import ./common/users/home/shadows.nix)
-            (import ./packages/internet.nix)
-            (import ./packages/multimedia.nix)
-            (import ./packages/utilities.nix)
-            (import ./packages/development.nix)
-            (import ./packages/gaming.nix)
           ];
         }
 
@@ -64,6 +59,13 @@
         ./common/services/syncthing.nix
         ./common/services/tailscale.nix
         ./common/services/zerotier.nix
+
+        # Packages
+        (import ./packages/internet.nix)
+        (import ./packages/multimedia.nix)
+        (import ./packages/utilities.nix)
+        (import ./packages/development.nix)
+        (import ./packages/gaming.nix)
       ];
     };
 
@@ -72,6 +74,12 @@
     # -----------------------
     nixosConfigurations.kepler = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        pkgs-unstable = import inputs.nixpkgs-unstable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
       modules = [
         # Hardware configurations
         ./hosts/kepler.nix
@@ -100,13 +108,6 @@
           };
           home-manager.users.shadows = lib.mkMerge [
             (import ./common/users/home/shadows.nix)
-            (import ./packages/internet.nix)
-            (import ./packages/multimedia.nix)
-            (import ./packages/utilities.nix)
-            (import ./packages/development.nix)
-            (import ./packages/gaming.nix)
-            (import ./packages/electronics.nix)
-            (import ./packages/windows.nix)
           ];
         }
 
@@ -120,7 +121,18 @@
         ./common/services/qemu.nix
         ./common/services/syncthing.nix
         ./common/services/tailscale.nix
+        ./common/services/waydroid.nix
         ./common/services/zerotier.nix
+
+        # Packages
+        (import ./packages/internet.nix)
+        (import ./packages/multimedia.nix)
+        (import ./packages/utilities.nix)
+        (import ./packages/development.nix)
+        (import ./packages/gaming.nix)
+        (import ./packages/electronics.nix)
+        (import ./packages/kubernetes.nix)
+        (import ./packages/windows.nix)
       ];
     };
 
@@ -155,12 +167,14 @@
           };
           home-manager.users.shadows = lib.mkMerge [
             (import ./common/users/home/shadows.nix)
-            (import ./packages/internet.nix)
-            (import ./packages/multimedia.nix)
-            (import ./packages/utilities.nix)
-            (import ./packages/gaming.nix)
           ];
         }
+
+        # Packages
+        ./packages/internet.nix
+        ./packages/multimedia.nix
+        ./packages/utilities.nix
+        ./packages/gaming.nix
       ];
     };
 
