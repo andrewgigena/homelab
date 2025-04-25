@@ -54,8 +54,8 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
-        rocmPackages_5.clr        # OpenCL for RX580
-        rocmPackages_5.clr.icd    # OpenCL for RX580
+        rocmPackages_5.clr
+        rocmPackages_5.clr.icd
         rocmPackages_5.rocminfo
         rocmPackages_5.rocm-runtime
         mesa
@@ -63,6 +63,12 @@
       ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    rocmPackages_5.clr
+    rocmPackages_5.rocminfo
+    rocmPackages_5.rocm-runtime
+  ];
 
   # -----------------------
   # Main disk

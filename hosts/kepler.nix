@@ -148,8 +148,8 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
-        rocmPackages_5.clr        # OpenCL for RX580
-        rocmPackages_5.clr.icd    # OpenCL for RX580
+        rocmPackages_5.clr
+        rocmPackages_5.clr.icd
         rocmPackages_5.rocminfo
         rocmPackages_5.rocm-runtime
         mesa
@@ -158,8 +158,12 @@
     };
   };
 
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages_5.clr}"
+  environment.systemPackages = with pkgs; [
+    rocmPackages_5.rocblas
+    rocmPackages_5.rocminfo
+    rocmPackages_5.rocm-runtime
+    rocmPackages_5.hipblas
+    rocmPackages_5.clr
   ];
 
   services.ddccontrol.enable = true;

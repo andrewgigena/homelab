@@ -18,5 +18,6 @@
     kdePackages.kdeconnect-kde # Remote access to computer from my phone
     kdePackages.krdc
     kdePackages.krfb
+    kdePackages.kompare
   ];
 }
