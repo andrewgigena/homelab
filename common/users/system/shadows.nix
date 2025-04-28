@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  programs.fish.enable = true;
+  programs.fish.shellAliases.nixos = "sudo nixos-rebuild --flake /etc/nixos/#$(hostname)";
+  users.defaultUserShell = pkgs-unstable.fish;
   users.extraUsers  = {
     shadows = {
       description = "Andrew Gigena";
