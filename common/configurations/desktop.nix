@@ -19,5 +19,6 @@
     kdePackages.krdc
     kdePackages.krfb
     kdePackages.kompare
+    systemdgenie
   ];
 }
