@@ -2,6 +2,7 @@
   description = "Andrew's NixOS config";
 
   inputs = {
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
@@ -9,7 +10,15 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nixos-hardware, ... } @ inputs:
+  outputs = {
+    self,
+    determinate,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    nixos-hardware,
+    ...
+  } @ inputs:
   let
     inherit (nixpkgs) lib;
   in {
@@ -18,7 +27,15 @@
     # -----------------------
     nixosConfigurations.mimir = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        pkgs-unstable = import inputs.nixpkgs-unstable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
       modules = [
+        determinate.nixosModules.default
+
         # Hardware configurations
         ./hosts/mimir.nix
         ./common/hardware/audio.nix
@@ -81,6 +98,8 @@
         };
       };
       modules = [
+        determinate.nixosModules.default
+
         # Hardware configurations
         ./hosts/kepler.nix
         ./common/hardware/audio.nix
@@ -141,7 +160,15 @@
     # -----------------------
     nixosConfigurations.voyager = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        pkgs-unstable = import inputs.nixpkgs-unstable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
       modules = [
+        determinate.nixosModules.default
+
         # Hardware configurations
         ./hosts/voyager.nix
         ./common/hardware/audio.nix
@@ -183,7 +210,15 @@
     # -----------------------
     nixosConfigurations.apollo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        pkgs-unstable = import inputs.nixpkgs-unstable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
       modules = [
+        determinate.nixosModules.default
+
         # Hardware configurations
         ./hosts/apollo.nix
 
