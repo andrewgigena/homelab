@@ -175,8 +175,22 @@
     ];
   };
 
+  # -----------------------
+  # CPU Emulation
+  # -----------------------
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    "riscv64-linux"
+  ];
+
   # VPN
   services.tailscale.extraSetFlags = [
     "--accept-routes"
   ];
+
+  # Fingerprint
+  services."06cb-009a-fingerprint-sensor" = {
+    enable = true;
+    backend = "python-validity";
+  };
 }

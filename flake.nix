@@ -8,6 +8,12 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    # Thinkpad T480
+    nixos-06cb-009a-fingerprint-sensor = {
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -17,6 +23,7 @@
     nixpkgs-unstable,
     home-manager,
     nixos-hardware,
+    nixos-06cb-009a-fingerprint-sensor,
     ...
   } @ inputs:
   let
@@ -42,6 +49,9 @@
         ./common/hardware/bluetooth.nix
         ./common/hardware/printing.nix
         ./common/hardware/ssd.nix
+
+        # Fingerprint reader
+        nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
 
         # System configurations
         ./common/configurations/desktop.nix
