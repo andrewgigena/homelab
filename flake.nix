@@ -162,6 +162,7 @@
         (import ./packages/electronics.nix)
         (import ./packages/kubernetes.nix)
         (import ./packages/windows.nix)
+        (import ./packages/llm.nix)
       ];
     };
 

@@ -19,6 +19,9 @@
     kdePackages.krdc
     kdePackages.krfb
     kdePackages.kompare
+    kdePackages.ksystemlog
+    kdePackages.kjournald
+    kdePackages.kalk
     systemdgenie
   ];
 }

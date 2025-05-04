@@ -12,6 +12,7 @@
   programs.git.userName = "Andrew Gigena";
   services.ssh-agent.enable = true;
   home.sessionPath = [
+    "/home/shadows/.local/bin"
     "/home/shadows/.cargo/bin"
   ];
 }

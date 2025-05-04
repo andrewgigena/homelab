@@ -9,5 +9,6 @@
     yakuake     # Dropdown Terminal
     typst       # Markup-based typesetting system
     onlyoffice-desktopeditors
+    anki-bin 
   ];
 }

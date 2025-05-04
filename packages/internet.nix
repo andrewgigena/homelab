@@ -11,5 +11,6 @@
     element-desktop
     #rustdesk
     discord
+    pkgs-unstable.zoom-us
   ];
 }
