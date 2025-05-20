@@ -88,11 +88,12 @@
         ./common/services/zerotier.nix
 
         # Packages
-        (import ./packages/internet.nix)
-        (import ./packages/multimedia.nix)
-        (import ./packages/utilities.nix)
         (import ./packages/development.nix)
         (import ./packages/gaming.nix)
+        (import ./packages/internet.nix)
+        (import ./packages/multimedia.nix)
+        (import ./packages/office.nix)
+        (import ./packages/utilities.nix)
       ];
     };
 
@@ -154,15 +155,15 @@
         ./common/services/zerotier.nix
 
         # Packages
-        (import ./packages/internet.nix)
-        (import ./packages/multimedia.nix)
-        (import ./packages/utilities.nix)
         (import ./packages/development.nix)
-        (import ./packages/gaming.nix)
         (import ./packages/electronics.nix)
+        (import ./packages/gaming.nix)
+        (import ./packages/internet.nix)
         (import ./packages/kubernetes.nix)
-        (import ./packages/windows.nix)
-        (import ./packages/llm.nix)
+        (import ./packages/machine-learning.nix)
+        (import ./packages/multimedia.nix)
+        (import ./packages/office.nix)
+        (import ./packages/utilities.nix)
       ];
     };
 
@@ -209,10 +210,10 @@
         }
 
         # Packages
+        (import ./packages/gaming.nix)
         (import ./packages/internet.nix)
         (import ./packages/multimedia.nix)
         (import ./packages/utilities.nix)
-        (import ./packages/gaming.nix)
       ];
     };
 

@@ -27,9 +27,11 @@
     # Code editors / IDEs
     pkgs.vscode
     pkgs-unstable.zed-editor
+    pkgs-unstable.jetbrains-toolbox
 
     # Programming Languages
     pkgs-unstable.clang                                      # C / C++
+    pkgs-unstable.dotnetCorePackages.dotnet_9.sdk            # C# / .NET
     pkgs-unstable.nodejs                                     # Javascript
     pkgs-unstable.python3                                    # Python 3
     pkgs-unstable.rustup                                     # Rust
