@@ -163,11 +163,27 @@
 
   systemd.services."qbittorrent-webui" = {
     description = "Starts qBittorrent webui";
-    serviceConfig.Type = "simple";
     wantedBy = [ "multi-user.target" ];
     script = ''
       ${pkgs.qbittorrent-nox}/bin/qbittorrent-nox
     '';
+
+    serviceConfig = {
+      Type = "simple";
+
+      # Memory control
+      MemoryAccounting = true;
+      MemoryMax = "1G";
+      MemorySwapMax = "256M";
+
+      # CPU control
+      CPUAccounting = true;
+      CPUQuota = "100%";  # Limit to 1 cpu core
+
+      # Reliability
+      Restart = "on-failure";
+      RestartSec = 10;
+    };
   };
 
   # -----------------------
@@ -438,5 +454,21 @@
       ${pkgs.docker}/bin/docker network inspect apollo > /dev/null 2>&1 || \
       ${pkgs.docker}/bin/docker network create apollo --subnet 172.20.0.0/16
     '';
+  };
+
+  systemd.services.redes-auth = {
+    description = "Servicio de Autenticación Redes 2025";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+
+    serviceConfig = {
+    Type = "simple";
+    ExecStart = "/home/shadows/redes-obligatorio/redes-auth 15033";
+    WorkingDirectory = "/home/shadows/redes-obligatorio";
+    Restart = "always";
+    RestartSec = 2;
+    User = "shadows";
+    Environment = "PORT=15033";
+    };
   };
 }
