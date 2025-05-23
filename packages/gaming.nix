@@ -1,8 +1,0 @@
-{ pkgs, pkgs-unstable, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    cemu      # Nintendo Wii U Emulator
-    lutris
-  ];
-}
