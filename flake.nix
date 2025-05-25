@@ -97,6 +97,12 @@
             thinkpad_t480_fp.nixosModules."06cb-009a-fingerprint-sensor"
           ];
         };
+
+        titan = mkHost {
+          name = "titan";
+          roles = [
+          ];
+        };
       };
     };
 }
