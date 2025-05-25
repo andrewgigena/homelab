@@ -1,9 +1,9 @@
-{ ... }:
+{ lib, ... }:
 
 {
   # Disks and partitions
   fileSystems = {
-    "/" = {
+    "/" = lib.mkForce {
       device = "/dev/disk/by-uuid/598bb9e6-9838-470e-bc03-19b51d4448ef";
       fsType = "btrfs";
       options = [
@@ -55,7 +55,7 @@
       neededForBoot = true;
     };
 
-    "/boot" = {
+    "/boot" = lib.mkForce {
       device = "/dev/disk/by-uuid/73FD-764B";
       fsType = "vfat";
       options = [
@@ -64,4 +64,11 @@
       ];
     };
   };
+
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 4 * 1024;
+    }
+  ];
 }
