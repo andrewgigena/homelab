@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./hardware.nix
+    ./hardware
   ];
 
   # Host-specific overrides

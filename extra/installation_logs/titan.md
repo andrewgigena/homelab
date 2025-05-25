@@ -52,6 +52,6 @@
 4. Clone the homelab repo on another computer and create a host based on other hosts and the generated `configuration.nix` and `hardware-configuration.nix`
 5. Push the changes when finished, clone the repo on the target device.
 4. Start the installer
-    * `sudo nixos-install --root /mnt --flake /etc/nixos/#titan`
+    * `sudo nixos-install --root /mnt --flake /mnt/etc/nixos/#titan`
     * `sudo nixos-enter --root /mnt -c 'passwd username'`
     * `sudo reboot`
