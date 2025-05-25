@@ -6,6 +6,6 @@
   ];
 
   # Host-specific overrides
-  networking.hostName = "mimir";
+  networking.hostName = "hubble";
   system.stateVersion = "24.05";
 }

@@ -85,8 +85,8 @@
           ];
         };
 
-        mimir = mkHost {
-          name = "mimir";
+        hubble = mkHost {
+          name = "hubble";
           roles = [
             "containers"
             "development"

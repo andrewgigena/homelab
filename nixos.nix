@@ -248,7 +248,10 @@
 
   # Enable fish shell
   programs.fish.enable = true;
-  programs.fish.shellAliases.nixos = "sudo nixos-rebuild --flake /etc/nixos/#$(hostname)";
+  programs.fish.shellAliases = {
+    nixos = "sudo nixos-rebuild --flake /etc/nixos/#$(hostname)";
+    clipdircontent = "/etc/nixos/extra/scripts/clipdircontent.fish";
+  };
   users.defaultUserShell = pkgs-unstable.fish;
 
   # It's me Andrew
