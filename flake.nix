@@ -38,6 +38,7 @@
           name,
           roles ? [ ],
           extraModules ? [ ],
+          useNixDeterminateSystem ? true,
         }:
         lib.nixosSystem {
           system = "x86_64-linux";
@@ -45,8 +46,8 @@
             pkgs-unstable = pkgsUnstable "x86_64-linux";
           };
           modules =
-            [
-              determinate.nixosModules.default
+            (lib.optional useNixDeterminateSystem determinate.nixosModules.default)
+            ++ [
               ./nixos.nix
               ./hosts/${name}
             ]
@@ -62,6 +63,7 @@
             "containers"
             "virtualization"
           ];
+          useNixDeterminateSystem = true;
         };
 
         voyager = mkHost {
@@ -70,6 +72,7 @@
             "gaming"
             "workstation"
           ];
+          useNixDeterminateSystem = false;
         };
 
         kepler = mkHost {
@@ -83,6 +86,7 @@
             "virtualization"
             "workstation"
           ];
+          useNixDeterminateSystem = true;
         };
 
         hubble = mkHost {
@@ -96,12 +100,13 @@
           extraModules = [
             thinkpad_t480_fp.nixosModules."06cb-009a-fingerprint-sensor"
           ];
+          useNixDeterminateSystem = true;
         };
 
         titan = mkHost {
           name = "titan";
-          roles = [
-          ];
+          roles = [ ];
+          useNixDeterminateSystem = false;
         };
       };
     };
