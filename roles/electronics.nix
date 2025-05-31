@@ -6,5 +6,9 @@
     wireshark
     tshark
     arduino-ide
+    minicom
+    fritzing
+    kicad
+    freecad-qt6
   ];
 }
