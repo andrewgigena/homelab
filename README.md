@@ -10,7 +10,7 @@ Four primary systems comprise the homelab: **Apollo** (server infrastructure), *
 - **Development**: Cross-compilation environments and embedded toolchains
 - **Electronics**: Hardware debugging tools, logic analyzers, and microcontroller IDEs for embedded development
 - **Gaming**: Steam integration with performance optimizations
-- **Machine Learning**: ROCm-enabled GPU stacks with custom LLM tooling
+- **Machine Learning**: LLM and related apps
 - **Virtualization**: QEMU/KVM virtualization stack with secure boot support, TPM emulation, and SPICE integration for managing virtual machines
 - **Workstation**: Plasma 6 desktop environment with productivity apps
 

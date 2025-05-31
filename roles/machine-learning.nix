@@ -21,7 +21,7 @@ let
   };
 in
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     llama-cpp-latest
     whisper-cpp-mod
   ];

@@ -35,9 +35,10 @@ let
     ksystemlog
     kjournald
     kalk
+    yakuake # Dropdown Terminal
   ];
 
-  internetPackages = with pkgs; [
+  internetPackages = with pkgs-unstable; [
     firefox # Web Browser
     google-chrome # Web Browser
     tor-browser # Web Browser
@@ -47,17 +48,16 @@ let
     element-desktop
     #rustdesk
     discord
-    pkgs-unstable.zoom-us
+    zoom-us
   ];
 
-  utilitiesPackages = with pkgs; [
+  utilitiesPackages = with pkgs-unstable; [
     anydesk # Desktop sharing and remote support
     bitwarden # Password manager
     helvum # Pipewire manager
-    yakuake # Dropdown Terminal
   ];
 
-  officePackages = with pkgs; [
+  officePackages = with pkgs-unstable; [
     obsidian # Notes
     typst # Markup-based typesetting system
     onlyoffice-desktopeditors # Office suite
@@ -65,7 +65,7 @@ let
     poppler_utils # PDF utilities
   ];
 
-  multimediaPackages = with pkgs; [
+  multimediaPackages = with pkgs-unstable; [
     audacity # Audio editor
     ffmpeg # The ultimate media tool
     gimp # Image editor

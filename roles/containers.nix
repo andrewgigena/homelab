@@ -1,10 +1,10 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 {
   # Containers
   virtualisation.docker.enable = true;
   virtualisation.podman.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     minikube
     kind
     kubectl

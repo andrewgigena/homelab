@@ -17,57 +17,57 @@
   '';
 
   # Development packages
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs-unstable; [
     # System/Development tooling
-    pkgs-unstable.cpio # Support for cpio
-    pkgs-unstable.flashrom # Flash Chips Flasher
-    pkgs-unstable.innoextract # Extractor of content from .exe installers
-    pkgs-unstable.act # Simulator of GitHub Actions using Docker
-    pkgs-unstable.android-tools # Android tooling for development and OS manipulation
-    pkgs-unstable.biome # Formatter and linter for JavaScript
-    pkgs-unstable.cambalache
-    pkgs-unstable.cmake # Build System
-    pkgs-unstable.dbeaver-bin
-    pkgs-unstable.devenv
-    pkgs-unstable.dtc # Device Tree compiler
-    pkgs-unstable.gdb
-    pkgs-unstable.gh # GitHub CLI tool
-    pkgs-unstable.jq # Formatter and query builder for JSON
-    pkgs-unstable.okteta
-    pkgs-unstable.pipx # Installer for pip programs in a sandbox
-    pkgs-unstable.poetry # Package manager for Python
-    pkgs-unstable.ruff # Formatter and linter for Python
-    pkgs-unstable.uv # Package manager for Python
-    pkgs-unstable.universal-ctags
+    cpio # Support for cpio
+    flashrom # Flash Chips Flasher
+    innoextract # Extractor of content from .exe installers
+    act # Simulator of GitHub Actions using Docker
+    android-tools # Android tooling for development and OS manipulation
+    biome # Formatter and linter for JavaScript
+    cambalache
+    cmake # Build System
+    dbeaver-bin
+    devenv
+    dtc # Device Tree compiler
+    gdb
+    gh # GitHub CLI tool
+    jq # Formatter and query builder for JSON
+    okteta
+    pipx # Installer for pip programs in a sandbox
+    poetry # Package manager for Python
+    ruff # Formatter and linter for Python
+    uv # Package manager for Python
+    universal-ctags
 
     # Code editors / IDEs
-    pkgs.vscode
-    pkgs-unstable.zed-editor
-    pkgs-unstable.jetbrains-toolbox
+    vscode
+    zed-editor
+    jetbrains-toolbox
 
     # Programming Languages
-    pkgs-unstable.clang # C / C++
-    pkgs-unstable.dotnetCorePackages.dotnet_9.sdk # C# / .NET
-    pkgs-unstable.nodejs # Javascript
-    pkgs-unstable.python3 # Python 3
-    pkgs-unstable.rustup # Rust
+    clang # C / C++
+    dotnetCorePackages.dotnet_9.sdk # C# / .NET
+    nodejs # Javascript
+    python3 # Python 3
+    rustup # Rust
 
     # Reverse engineering
-    pkgs.radare2
-    pkgs.ghidra
+    radare2
+    ghidra
 
     # Databases
-    pkgs-unstable.sqlite
+    sqlite
 
     # Nix
-    pkgs.devbox
+    devbox
 
-    pkgs.virtiofsd
+    virtiofsd
 
     # Binwalk v3
-    pkgs-unstable.binwalk
+    binwalk
 
     # Containerization
-    pkgs-unstable.distrobox
+    distrobox
   ];
 }
