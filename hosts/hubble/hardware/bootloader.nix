@@ -6,6 +6,9 @@
     supportedFilesystems = [ "btrfs" ];
     loader.systemd-boot.enable = true;
     loader.systemd-boot.consoleMode = "keep";
+    loader.systemd-boot.edk2-uefi-shell.enable = true;
+    loader.systemd-boot.memtest86.enable = true;
+    loader.systemd-boot.netbootxyz.enable = true;
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = true;
     initrd.systemd.enable = true;
