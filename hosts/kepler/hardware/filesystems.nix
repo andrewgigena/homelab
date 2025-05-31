@@ -76,18 +76,6 @@
       ];
     };
 
-    # - Gandalf - FUJITSU MJA2320BH G2
-    "/disks/gandalf" = {
-      device = "/dev/disk/by-uuid/75009ea3-cb1f-4cc0-ac88-e403e44e232a";
-      fsType = "btrfs";
-      options = [
-        "compress=zstd"
-        "noatime"
-        "nofail"
-        "x-systemd.device-timeout=5"
-      ];
-    };
-
     # - PostmarketOS - WDC WD10JPVX-60JC3T0
     "/disks/postmarketos" = {
       device = "/dev/disk/by-uuid/0090e30f-007a-45ea-a23f-6868a371a41d";
