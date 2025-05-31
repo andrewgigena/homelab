@@ -3,10 +3,8 @@
 
   inputs = {
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     thinkpad_t480_fp = {
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
