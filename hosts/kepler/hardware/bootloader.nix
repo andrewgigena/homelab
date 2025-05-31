@@ -9,6 +9,10 @@
     loader.systemd-boot.edk2-uefi-shell.enable = true;
     loader.systemd-boot.memtest86.enable = true;
     loader.systemd-boot.netbootxyz.enable = true;
+    loader.systemd-boot.windows."windows11" = {
+      title = "Windows 11";
+      efiDeviceHandle = "HD0b65535a2";
+    };
     loader.efi.canTouchEfiVariables = true;
     plymouth.enable = true;
     initrd.systemd.enable = true;
