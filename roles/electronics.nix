@@ -9,6 +9,5 @@
     minicom
     fritzing
     kicad
-    freecad-qt6
   ];
 }

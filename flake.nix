@@ -77,6 +77,7 @@
           name = "kepler";
           roles = [
             "containers"
+            "creative"
             "development"
             "electronics"
             "gaming"
