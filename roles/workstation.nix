@@ -76,6 +76,10 @@ let
     jellyfin-media-player
   ];
 
+  winePackagesC = with pkgs-unstable; [
+    wineWowPackages.waylandFull
+    winetricks
+  ];
 in
 {
   # Installs KDE Plasma 6
@@ -87,6 +91,7 @@ in
       sddm.wayland.enable = true;
       defaultSession = "plasma";
     };
+    colord.enable = true;
   };
 
   # Plasma Autologin (Login not needed due to using FDE on boots and on hibernation.)
@@ -106,5 +111,10 @@ in
 
   # Install packages
   environment.systemPackages =
-    kdePackages ++ internetPackages ++ utilitiesPackages ++ officePackages ++ multimediaPackages;
+    kdePackages
+    ++ internetPackages
+    ++ utilitiesPackages
+    ++ officePackages
+    ++ multimediaPackages
+    ++ winePackagesC;
 }

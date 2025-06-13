@@ -7,8 +7,6 @@
     kdePackages.kdenlive # Video editor
     davinci-resolve # Video editor
     freecad-qt6 # 2D/3D parametric CAD
-    qcad # 2D CAD
-    openscad # 3D parametric CAD
     audacity # Audio editor
     obs-studio # Audio/Video recoder
     ardour # Digital Audio Workstation

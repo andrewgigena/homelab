@@ -8,9 +8,9 @@
         package = pkgs.qemu_full;
         runAsRoot = true;
         swtpm.enable = true;
-        ovmf = {
-          enable = true;
-        };
+        vhostUserPackages = [ pkgs.virtiofsd ];
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
     spiceUSBRedirection.enable = true;
