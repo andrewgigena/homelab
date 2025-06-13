@@ -2,6 +2,7 @@
 {
   imports = [
     ./bootloader.nix
+    ./display.nix
     ./filesystems.nix
     ./firmware.nix
     ./gpu.nix

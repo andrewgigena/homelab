@@ -37,9 +37,6 @@
       "quiet"
       "splash"
       "udev.log_level=0"
-      "video=DP-1:1920x1080@60.00"
-      "video=DP-2:1920x1080@60.00,panel_orientation=left_side_up"
-      "video=HDMI-A-1:2560x1080@74.99"
       "kvm.enable_virt_at_load=0"
     ];
   };
