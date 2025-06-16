@@ -1,7 +1,7 @@
 { pkgs-unstable, ... }:
 {
   environment.systemPackages = with pkgs-unstable; [
-    gimp # Image editor
+    gimp3 # Image editor
     krita # Painting editor
     inkscape # Vectors image editor
     kdePackages.kdenlive # Video editor
