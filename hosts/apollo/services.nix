@@ -8,6 +8,7 @@
   services.homepage-dashboard = {
     enable = true;
     openFirewall = true;
+    allowedHosts = "home.andrewgigena.dev";
     bookmarks = [
       {
         "Herramientas de IA" = [
@@ -357,6 +358,7 @@
   services.lidarr.enable = true;
   services.bazarr.enable = true;
   services.jellyfin.enable = true;
+  services.jellyfin.openFirewall = true;
 
   # Docker-based services
   virtualisation.docker.enable = true;
