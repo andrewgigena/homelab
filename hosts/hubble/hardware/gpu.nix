@@ -3,23 +3,23 @@
 {
   # Environment Variables
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "i965";
+    LIBVA_DRIVER_NAME = "iHD";
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "iris";
-  };
-
-  # Video acceleration
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
   };
 
   # OpenGL and Others
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      intel-media-driver # Video acceleration
       libvdpau-va-gl # Video acceleration
       intel-compute-runtime # OpenCL
       mesa.opencl
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+      intel-compute-runtime
+  ];
 }
