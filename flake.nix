@@ -104,7 +104,9 @@
 
         titan = mkHost {
           name = "titan";
-          roles = [ ];
+          roles = [ 
+            "media-client"
+	  ];
           useNixDeterminateSystem = false;
         };
       };

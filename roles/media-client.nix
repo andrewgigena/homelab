@@ -3,11 +3,6 @@ let
   kdePackages = with pkgs.kdePackages; [
     krdc
     krfb
-    kompare
-    ksystemlog
-    kjournald
-    kalk
-    yakuake # Dropdown Terminal
   ];
 
   utilitiesPackages = with pkgs-unstable; [
@@ -50,6 +45,5 @@ in
   programs.kdeconnect.enable = true;
 
   # Install packages
-  environment.systemPackages =
-    kdePackages ++ utilitiesPackages ++ multimediaPackages;
+  environment.systemPackages = kdePackages ++ utilitiesPackages ++ multimediaPackages;
 }
