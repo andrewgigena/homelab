@@ -16,7 +16,6 @@
 
   environment.systemPackages = with pkgs; [
     aha
-    amdgpu_top
     axel
     bat
     clinfo
@@ -46,6 +45,7 @@
     powertop
     ripgrep
     rsync
+    sysfsutils
     tldr
     trashy
     unrar

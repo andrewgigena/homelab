@@ -3,23 +3,28 @@
 {
   # Environment Variables
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-    NIXOS_OZONE_WL = "1";
-    RUSTICL_ENABLE = "iris";
+    LIBVA_DRIVER_NAME = "iHD"; # Sets the VAAPI driver as intel-media-driver
+    NIXOS_OZONE_WL = "1"; # Allows running Electron/Chromium apps on Wayland
+    RUSTICL_ENABLE = "iris"; # Enables RustiCL on Intel GPU
+    ANV_DEBUG = "video-decode,video-encode"; # Enables "Vulkan Video"
   };
 
   # OpenGL and Others
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver # Video acceleration
-      libvdpau-va-gl # Video acceleration
-      intel-compute-runtime # OpenCL
-      mesa.opencl
+      mesa # OpenGL, Vulkan, etc.
+      mesa.opencl # OpenCL
+      intel-media-driver # VAAPI, Video acceleration
+      libvdpau-va-gl # VDPAU, Video acceleration
+      intel-compute-runtime-legacy1 # OpenCL
+      pocl # OpenCL
     ];
   };
 
   environment.systemPackages = with pkgs; [
-      intel-compute-runtime
+    nvtopPackages.intel
+    libva-utils
+    vdpauinfo
   ];
 }
