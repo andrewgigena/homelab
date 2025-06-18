@@ -55,6 +55,7 @@ let
     anydesk # Desktop sharing and remote support
     bitwarden # Password manager
     helvum # Pipewire manager
+    easyeffects
   ];
 
   officePackages = with pkgs-unstable; [
