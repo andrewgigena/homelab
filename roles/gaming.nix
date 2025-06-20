@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -7,7 +7,7 @@
     gamemode.enable = true;
   };
 
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     cemu
     lutris
   ];

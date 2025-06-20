@@ -199,6 +199,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-andrew": {
+      "locked": {
+        "lastModified": 1750382466,
+        "narHash": "sha256-/CPtEZJWvv72tV435aOKLSHgRPW+wwvwSDqjGaZP5b0=",
+        "owner": "andrewgigena",
+        "repo": "nixpkgs",
+        "rev": "fb98845268a300bb949a1a6d3a5787f58f7080cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andrewgigena",
+        "ref": "staging/2025-06-19",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -212,22 +228,6 @@
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
-        "type": "github"
-      }
-    },
-    "nixpkgs-unstable": {
-      "locked": {
-        "lastModified": 1748460289,
-        "narHash": "sha256-7doLyJBzCllvqX4gszYtmZUToxKvMUrg45EUWaUYmBg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "96ec055edbe5ee227f28cdbc3f1ddf1df5965102",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -266,7 +266,7 @@
         "determinate": "determinate",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixpkgs-andrew": "nixpkgs-andrew",
         "thinkpad_t480_fp": "thinkpad_t480_fp"
       }
     },

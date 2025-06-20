@@ -4,7 +4,7 @@
   inputs = {
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-andrew.url = "github:andrewgigena/nixpkgs/staging/2025-06-19";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     thinkpad_t480_fp = {
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
@@ -16,7 +16,7 @@
     inputs@{
       self,
       nixpkgs,
-      nixpkgs-unstable,
+      nixpkgs-andrew,
       determinate,
       thinkpad_t480_fp,
       ...
@@ -24,9 +24,9 @@
     let
       inherit (nixpkgs) lib;
 
-      pkgsUnstable =
+      pkgsAndrew =
         system:
-        import nixpkgs-unstable {
+        import nixpkgs-andrew {
           inherit system;
           config.allowUnfree = true;
         };
@@ -41,7 +41,7 @@
         lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            pkgs-unstable = pkgsUnstable "x86_64-linux";
+            pkgs-andrew = pkgsAndrew "x86_64-linux";
           };
           modules =
             (lib.optional useNixDeterminateSystem determinate.nixosModules.default)
@@ -104,9 +104,9 @@
 
         titan = mkHost {
           name = "titan";
-          roles = [ 
+          roles = [
             "media-client"
-	  ];
+          ];
           useNixDeterminateSystem = false;
         };
       };

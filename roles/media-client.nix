@@ -1,15 +1,15 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 let
   kdePackages = with pkgs.kdePackages; [
     krdc
     krfb
   ];
 
-  utilitiesPackages = with pkgs-unstable; [
+  utilitiesPackages = with pkgs; [
     easyeffects
   ];
 
-  multimediaPackages = with pkgs-unstable; [
+  multimediaPackages = with pkgs; [
     ffmpeg # The ultimate media tool
     imagemagick # Image conversor
     mediainfo # Info about audio/video/subtitle

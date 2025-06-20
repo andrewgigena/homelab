@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   # Multiarch Emulation
@@ -17,7 +17,7 @@
   '';
 
   # Development packages
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     # System/Development tooling
     cpio # Support for cpio
     flashrom # Flash Chips Flasher

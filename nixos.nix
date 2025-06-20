@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-unstable,
   lib,
   ...
 }:
@@ -253,7 +252,7 @@
     nixos = "sudo nixos-rebuild --flake /etc/nixos/#$(hostname)";
     clipdircontent = "/etc/nixos/extra/scripts/clipdircontent.fish";
   };
-  users.defaultUserShell = pkgs-unstable.fish;
+  users.defaultUserShell = pkgs.fish;
 
   # It's me Andrew
   users.extraUsers.shadows = {

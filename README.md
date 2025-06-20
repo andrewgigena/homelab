@@ -3,7 +3,7 @@ This repository contains my personal NixOS configuration files, tailored for mul
 
 My homelab configuration follows a modular structure centered around a central `flake.nix` that orchestrates all systems. I've organized the infrastructure into reusable roles and host-specific configurations, creating a balance between shared functionality and individual machine needs.
 
-The foundation is built using Nix flakes with two primary package channels - the stable `nixos-24.11` branch for core system components, and `nixpkgs-unstable` for select desktop applications and development tools. This hybrid approach lets me maintain system stability while still accessing bleeding-edge software where it matters most.
+The foundation is built using Nix flakes with two primary package channels - the stable `nixos-24.11` branch for core system components, and `nixpkgs-andrew` for custom builded apps. This hybrid approach lets me maintain system stability while still accessing bleeding-edge software where it matters most.
 
 Four primary systems comprise the homelab: **Apollo** (server infrastructure), **Kepler** (main workstation), **Hubble** (main mobile workstation), and **Voyager** (secondary mobile workstation). Each device is named after space exploration milestones and celestial objects and they are defined through a role-based composition system. I've created dedicated role modules for common functionalities:
 - **Containers**: Docker/Podman support with Kubernetes tooling

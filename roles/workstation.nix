@@ -1,33 +1,5 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 let
-  systemdgenie-latest = (
-    pkgs-unstable.systemdgenie.overrideAttrs (old: {
-      version = "0.100.0";
-      src = pkgs-unstable.fetchFromGitLab {
-        domain = "invent.kde.org";
-        repo = "SystemdGenie";
-        owner = "system";
-        rev = "751895865258f42add95caba08a89eb1819f12c6";
-        hash = "sha256-NAVhurcRqEIKMtn7/NBsiXQbE44RYreCJf4ESi8KSoI=";
-      };
-      nativeBuildInputs = [
-        pkgs-unstable.cmake
-        pkgs-unstable.kdePackages.extra-cmake-modules
-        pkgs-unstable.kdePackages.wrapQtAppsHook
-        pkgs-unstable.pkg-config
-      ];
-      buildInputs = [
-        pkgs-unstable.kdePackages.kxmlgui
-        pkgs-unstable.kdePackages.kauth
-        pkgs-unstable.kdePackages.kcrash
-        pkgs-unstable.kdePackages.ktexteditor
-        pkgs-unstable.kdePackages.kio
-        pkgs-unstable.pipewire
-        pkgs-unstable.kdePackages.kirigami-addons
-      ];
-    })
-  );
-
   kdePackages = with pkgs.kdePackages; [
     krdc
     krfb
@@ -38,7 +10,7 @@ let
     yakuake # Dropdown Terminal
   ];
 
-  internetPackages = with pkgs-unstable; [
+  internetPackages = with pkgs; [
     firefox # Web Browser
     google-chrome # Web Browser
     tor-browser # Web Browser
@@ -51,14 +23,15 @@ let
     zoom-us
   ];
 
-  utilitiesPackages = with pkgs-unstable; [
+  utilitiesPackages = with pkgs; [
     anydesk # Desktop sharing and remote support
     bitwarden # Password manager
     helvum # Pipewire manager
     easyeffects
+    # appimage-run
   ];
 
-  officePackages = with pkgs-unstable; [
+  officePackages = with pkgs; [
     obsidian # Notes
     typst # Markup-based typesetting system
     onlyoffice-desktopeditors # Office suite
@@ -66,7 +39,7 @@ let
     poppler_utils # PDF utilities
   ];
 
-  multimediaPackages = with pkgs-unstable; [
+  multimediaPackages = with pkgs; [
     ffmpeg # The ultimate media tool
     imagemagick # Image conversor
     mediainfo # Info about audio/video/subtitle
@@ -77,7 +50,7 @@ let
     jellyfin-media-player
   ];
 
-  winePackagesC = with pkgs-unstable; [
+  winePackagesC = with pkgs; [
     wineWowPackages.waylandFull
     winetricks
   ];
