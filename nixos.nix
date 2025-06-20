@@ -33,6 +33,7 @@
     lm_sensors
     mkpasswd
     moreutils
+    iperf3
     ncdu
     neovim
     nixd
