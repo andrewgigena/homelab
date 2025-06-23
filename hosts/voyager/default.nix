@@ -1,6 +1,7 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   imports = [
+    ./hardware
     ./voyager.nix
   ];
 
