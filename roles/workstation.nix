@@ -64,15 +64,13 @@ in
       sddm.enable = true;
       sddm.wayland.enable = true;
       defaultSession = "plasma";
+
+      # Plasma Autologin (Login not needed due to using FDE on boots and on hibernation.)
+      sddm.autoLogin.relogin = true;
+      autoLogin.enable = true;
+      autoLogin.user = "shadows";
     };
     colord.enable = true;
-  };
-
-  # Plasma Autologin (Login not needed due to using FDE on boots and on hibernation.)
-  services.displayManager = {
-    autoLogin.enable = true;
-    autoLogin.user = "shadows";
-    sddm.autoLogin.relogin = true;
   };
 
   # Enable extra apps
