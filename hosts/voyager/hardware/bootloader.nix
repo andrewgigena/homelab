@@ -26,13 +26,13 @@
     initrd.kernelModules = [
       "dm-snapshot"
       "i915"
-      "amdgpu"
+      "radeon"
     ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [
       "kvm-intel"
       "i915"
-      "amdgpu"
+      "radeon"
     ];
     extraModulePackages = [ ];
     kernelParams = [
